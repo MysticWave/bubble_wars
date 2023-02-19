@@ -1,0 +1,94 @@
+.custom-select
+{
+    position: relative;
+
+    float: left;
+    width: max-content;
+    line-height: 26px;
+    height: 26px;
+
+
+    font-size: 18px;
+    padding-left: 5px;
+    color: white;
+    padding-right: 26px;
+    outline: none;
+    
+
+    background-color: #2b81d6;
+    border-bottom: 2px solid #025ebb;
+    border-right: 2px solid #025ebb;
+}
+.custom-select[data-disabled='true']
+{
+    pointer-events: none;
+}
+.custom-select::after
+{
+    position: absolute;
+    content: "";
+    top: 10px;
+    right: 6px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+.custom-select[data-active='true']::after
+{
+    border-color: transparent transparent #fff transparent;
+    top: 4px;
+}
+
+.custom-select .options-container
+{
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    height: max-content;
+    float: left;
+
+    display: none;
+
+    background-color: inherit;
+    border: inherit;
+    z-index: 2;
+}
+.custom-select[data-active='true'] .options-container
+{
+    display: block;
+}
+.custom-select[data-active='true'] .options-container .option
+{
+    float: left;
+    width: 100%;
+    height: inherit;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+.custom-select .option[data-disabled='true']
+{
+    pointer-events: none;
+}
+.custom-select .option[data-icon]
+{
+    background-size: 0px 0px !important;
+}
+.custom-select .option[data-icon]::before
+{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin: 3px;
+    float: left;
+
+    background-image: inherit;
+    background-size: cover;
+
+    background-repeat: inherit;
+    background-position-y: inherit;
+    background-position-x: inherit;
+}

@@ -1,0 +1,1611 @@
+{
+	"name": "Model",
+	"type": "Model",
+	"isArmor": false,
+	"width": 1024,
+	"height": 700,
+	"p_width": 15,
+	"p_height": 15,
+	"move": false,
+	"scale": 1,
+	"Scale": 1.5000000000000004,
+	"mirrored": false,
+	"hitbox": [
+		32,
+		64
+	],
+	"diffX": 2,
+	"divvY": 0,
+	"rotationOfsset": [
+		0,
+		0
+	],
+	"position": [
+		723.5,
+		67.5
+	],
+	"endPosition": [
+		723.5,
+		67.5
+	],
+	"offset": [
+		-512,
+		-130
+	],
+	"rotation": 0,
+	"selfRotation": 0,
+	"armorModel": null,
+	"parts": [
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": null,
+			"isArmor": false,
+			"name": "base",
+			"id": 0,
+			"renderIndex": 1,
+			"mirrorIndex": 0,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 256,
+			"height": 256,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.base",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				67.5
+			],
+			"endPosition": [
+				723.5,
+				91.5
+			],
+			"rotationOfsset": [
+				128,
+				120
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				256,
+				256
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 86.5
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 0,
+			"isArmor": false,
+			"name": "tail_pivot",
+			"id": 1,
+			"renderIndex": 2,
+			"mirrorIndex": 1,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 130,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				723.5,
+				91.5
+			],
+			"endPosition": [
+				723.5,
+				256.50000000000006
+			],
+			"rotationOfsset": [
+				10,
+				10
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 1,
+			"isArmor": false,
+			"name": "tail_1",
+			"id": 2,
+			"renderIndex": 3,
+			"mirrorIndex": 2,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 54,
+			"height": 54,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				256.50000000000006
+			],
+			"endPosition": [
+				723.5,
+				322.50000000000006
+			],
+			"rotationOfsset": [
+				27,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 317.50000000000006
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 2,
+			"isArmor": false,
+			"name": "tail_2",
+			"id": 3,
+			"renderIndex": 4,
+			"mirrorIndex": 3,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 54,
+			"height": 54,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				322.50000000000006
+			],
+			"endPosition": [
+				723.5,
+				388.50000000000006
+			],
+			"rotationOfsset": [
+				27,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 383.50000000000006
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 3,
+			"isArmor": false,
+			"name": "tail_3",
+			"id": 4,
+			"renderIndex": 5,
+			"mirrorIndex": 4,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 50,
+			"height": 50,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				388.50000000000006
+			],
+			"endPosition": [
+				723.5,
+				448.50000000000006
+			],
+			"rotationOfsset": [
+				25,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 443.50000000000006
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 4,
+			"isArmor": false,
+			"name": "tail_4",
+			"id": 5,
+			"renderIndex": 6,
+			"mirrorIndex": 5,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 50,
+			"height": 50,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				448.50000000000006
+			],
+			"endPosition": [
+				723.5,
+				508.50000000000006
+			],
+			"rotationOfsset": [
+				25,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 503.50000000000006
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 5,
+			"isArmor": false,
+			"name": "tail_5",
+			"id": 6,
+			"renderIndex": 7,
+			"mirrorIndex": 6,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 50,
+			"height": 50,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				508.50000000000006
+			],
+			"endPosition": [
+				723.5,
+				568.5000000000001
+			],
+			"rotationOfsset": [
+				25,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 563.5000000000001
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 6,
+			"isArmor": false,
+			"name": "tail_6",
+			"id": 7,
+			"renderIndex": 8,
+			"mirrorIndex": 7,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 44,
+			"height": 44,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				568.5000000000001
+			],
+			"endPosition": [
+				723.5,
+				619.5000000000001
+			],
+			"rotationOfsset": [
+				22,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 614.5000000000001
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 7,
+			"isArmor": false,
+			"name": "tail_7",
+			"id": 8,
+			"renderIndex": 9,
+			"mirrorIndex": 8,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 44,
+			"height": 44,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				619.5000000000001
+			],
+			"endPosition": [
+				723.5,
+				670.5000000000001
+			],
+			"rotationOfsset": [
+				22,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 665.5000000000001
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 8,
+			"isArmor": false,
+			"name": "tail_8",
+			"id": 9,
+			"renderIndex": 10,
+			"mirrorIndex": 9,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 44,
+			"height": 44,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				670.5000000000001
+			],
+			"endPosition": [
+				723.5,
+				721.5000000000001
+			],
+			"rotationOfsset": [
+				22,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 716.5000000000001
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 9,
+			"isArmor": false,
+			"name": "tail_9",
+			"id": 10,
+			"renderIndex": 11,
+			"mirrorIndex": 10,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 36,
+			"height": 36,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				721.5000000000001
+			],
+			"endPosition": [
+				723.5,
+				760.5000000000001
+			],
+			"rotationOfsset": [
+				18,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 755.5000000000001
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 10,
+			"isArmor": false,
+			"name": "tail_10",
+			"id": 11,
+			"renderIndex": 12,
+			"mirrorIndex": 11,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 36,
+			"height": 36,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				760.5000000000001
+			],
+			"endPosition": [
+				723.5,
+				799.5000000000001
+			],
+			"rotationOfsset": [
+				18,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 794.5000000000001
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 11,
+			"isArmor": false,
+			"name": "tail_11",
+			"id": 12,
+			"renderIndex": 13,
+			"mirrorIndex": 12,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 36,
+			"height": 36,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				799.5000000000001
+			],
+			"endPosition": [
+				723.5,
+				838.5000000000001
+			],
+			"rotationOfsset": [
+				18,
+				5
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				54,
+				54
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 833.5000000000001
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 0,
+			"isArmor": false,
+			"name": "wing_pivot_left_1",
+			"id": 13,
+			"renderIndex": 14,
+			"mirrorIndex": 13,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 54,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				723.5,
+				91.5
+			],
+			"endPosition": [
+				678.4696727641947,
+				115.44304970208043
+			],
+			"rotationOfsset": [
+				10,
+				10
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 62,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 62,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 0,
+			"isArmor": false,
+			"name": "wing_pivot_right_1",
+			"id": 14,
+			"renderIndex": 15,
+			"mirrorIndex": 14,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 54,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				723.5,
+				91.5
+			],
+			"endPosition": [
+				768.5303272358053,
+				115.44304970208043
+			],
+			"rotationOfsset": [
+				10,
+				10
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -62,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -62,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 0,
+			"isArmor": false,
+			"name": "wing_pivot_left_2waterfly",
+			"id": 15,
+			"renderIndex": 16,
+			"mirrorIndex": 15,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 76,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				723.5,
+				91.5
+			],
+			"endPosition": [
+				680.2368017075554,
+				163.50205325897747
+			],
+			"rotationOfsset": [
+				10,
+				10
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 31,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 31,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 0,
+			"isArmor": false,
+			"name": "wing_pivot_right_2",
+			"id": 16,
+			"renderIndex": 17,
+			"mirrorIndex": 16,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 76,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				723.5,
+				91.5
+			],
+			"endPosition": [
+				766.7631982924446,
+				163.50205325897747
+			],
+			"rotationOfsset": [
+				10,
+				10
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -31,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -31,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 14,
+			"isArmor": false,
+			"name": "wing_right_1",
+			"id": 17,
+			"renderIndex": 18,
+			"mirrorIndex": 17,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 500,
+			"height": 150,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.wing",
+			"lockRotate": false,
+			"position": [
+				768.5303272358053,
+				115.44304970208043
+			],
+			"endPosition": [
+				1477.5919094045953,
+				-9.583638218109442
+			],
+			"rotationOfsset": [
+				10,
+				90
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -10,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "x",
+			"TextureSize": [
+				500,
+				150
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 52,
+			"rotationStatic": false,
+			"x": 1472.5919094045953,
+			"y": -14.583638218109442
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 16,
+			"isArmor": false,
+			"name": "wing_right_2",
+			"id": 18,
+			"renderIndex": 19,
+			"mirrorIndex": 18,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 500,
+			"height": 150,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.wing",
+			"lockRotate": false,
+			"position": [
+				766.7631982924446,
+				163.50205325897747
+			],
+			"endPosition": [
+				1438.94110537043,
+				421.52697693159377
+			],
+			"rotationOfsset": [
+				10,
+				90
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 21,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "x",
+			"TextureSize": [
+				500,
+				150
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 52,
+			"rotationStatic": false,
+			"x": 1433.94110537043,
+			"y": 416.52697693159377
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 15,
+			"isArmor": false,
+			"name": "wing_left_1",
+			"id": 19,
+			"renderIndex": 21,
+			"mirrorIndex": 19,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 500,
+			"height": 150,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.wing",
+			"lockRotate": false,
+			"position": [
+				680.2368017075554,
+				163.50205325897747
+			],
+			"endPosition": [
+				1352.4147087855408,
+				-94.52287041363883
+			],
+			"rotationOfsset": [
+				10,
+				90
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				-1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -21,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "x",
+			"TextureSize": [
+				500,
+				150
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -52,
+			"rotationStatic": false,
+			"x": 1347.4147087855408,
+			"y": -99.52287041363883
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 13,
+			"isArmor": false,
+			"name": "wing_left_2",
+			"id": 20,
+			"renderIndex": 20,
+			"mirrorIndex": 20,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 500,
+			"height": 150,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.wing",
+			"lockRotate": false,
+			"position": [
+				678.4696727641947,
+				115.44304970208043
+			],
+			"endPosition": [
+				1387.5312549329847,
+				240.46973762227032
+			],
+			"rotationOfsset": [
+				10,
+				90
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				-1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 10,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "x",
+			"TextureSize": [
+				500,
+				150
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -52,
+			"rotationStatic": false,
+			"x": 1382.5312549329847,
+			"y": 235.46973762227032
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 12,
+			"isArmor": false,
+			"name": "tail_end",
+			"id": 21,
+			"renderIndex": 0,
+			"mirrorIndex": -1,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 36,
+			"height": 24,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.waterfly.tail.end",
+			"lockRotate": false,
+			"position": [
+				723.5,
+				838.5000000000001
+			],
+			"endPosition": [
+				723.5,
+				874.5000000000001
+			],
+			"rotationOfsset": [
+				18,
+				0
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1.5000000000000004,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				55,
+				36
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false,
+			"x": 718.5,
+			"y": 869.5000000000001
+		}
+	],
+	"directories": [],
+	"events_cs": [
+		{
+			"name": "Update",
+			"text": [
+				"public override void Update(int x, int y)",
+				"{",
+				"\tbase.Update(x, y);",
+				"}"
+			],
+			"id": -1
+		},
+		{
+			"name": "Render",
+			"text": [
+				"public override void Render(SpriteBatch spriteBatch)",
+				"{",
+				"\tbase.Render(spriteBatch);",
+				"}"
+			],
+			"id": 1
+		}
+	],
+	"events_js": [
+		{
+			"name": "Update",
+			"text": [
+				"Update()",
+				"{",
+				"\tsuper.Update();",
+				"}"
+			],
+			"id": 0
+		},
+		{
+			"name": "Render",
+			"text": [
+				"Render(context)",
+				"{",
+				"\tsuper.Render(context);",
+				"}"
+			],
+			"id": 1
+		}
+	],
+	"imports": [
+		"System;",
+		"System.Collections.Generic;",
+		"System.Linq;",
+		"System.Text;",
+		"Microsoft.Xna.Framework;",
+		"Microsoft.Xna.Framework.Content;",
+		"Microsoft.Xna.Framework.GamerServices;",
+		"Microsoft.Xna.Framework.Graphics;",
+		"Microsoft.Xna.Framework.Input;",
+		"Microsoft.Xna.Framework.Media;",
+		"System.Diagnostics;",
+		"Helper;"
+	],
+	"x": 716,
+	"y": 60,
+	"diffY": 15,
+	"length": 0
+}

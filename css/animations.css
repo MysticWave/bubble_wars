@@ -1,0 +1,116 @@
+@keyframes flare
+{
+    0%
+    {
+        opacity: 1;
+        
+    }
+
+    25%
+    {
+        opacity: 1;
+    }
+
+    50%
+    {
+        opacity: 0.2;
+        transform: rotate(1deg);
+        transform-origin: left top;
+    }
+
+    75%
+    {
+        opacity: 1;
+    }
+
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes spriteSheetX 
+{
+    from {background-position-x: 0px;}
+    to {background-position-x: calc(var(--frames-x) * -100%);}
+}
+
+@keyframes spriteSheetY 
+{
+    from {background-position-y: 0px;}
+    to {background-position-y: calc(var(--frames-y) * -100%);}
+}
+
+
+
+@keyframes pop-up 
+{
+    0%
+	{
+		transform: scale(0);
+	}
+
+	90%
+	{
+		transform: scale(1.1);
+	}
+
+	100%
+	{
+		transform: scale(1);
+	}
+}
+
+@keyframes fade-animation
+{
+    0%
+    {
+        opacity: 0;
+    }
+
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes rotate
+{
+    0%
+    {
+        transform: rotate(var(--start-angle, 0deg));
+    }
+
+    100%
+    {
+        transform: rotate(var(--end-angle, 360deg));
+    }
+}
+
+
+@keyframes new-slot-anim
+{
+    0%
+    {
+        transform: scale(1.1);
+    }
+
+    50%
+    {
+        transform: scale(.9);
+    }
+
+    100%
+    {
+        transform: scale(1.1);
+    }
+}
+
+
+@keyframes opacity 
+{
+    0%{opacity: var(--from, 0)}
+    100%{opacity: var(--to, 1)}
+}

@@ -1,0 +1,36 @@
+{
+    "app_name": "demo",
+    "chromium-args": "--data-path='./saves/' --in-process-gpu --disable-transparency",
+    "main": "index.htm",
+    "name": "demo",
+    "version": "0.1.0",
+    "webexe_settings": {
+        "blacklist": "",
+        "custom_script": "",
+        "download_dir": "",
+        "export_dir": "output",
+        "force_download": false,
+        "nw_compression_level": 0,
+        "nw_version": "0.47.0-beta1",
+        "output_pattern": "",
+        "sdk_build": false,
+        "uncompressed_folder": false,
+        "whitelist": "",
+        "windows-x32": true,
+        "windows-x64": true
+    },
+    "webkit": {},
+    "window": {
+        "frame": true,
+        "fullscreen": false,
+        "height": 1080,
+        "id": "demo",
+        "resizable": true,
+        "show": true,
+        "show_in_taskbar": true,
+        "title": "demo",
+        "toolbar": false,
+        "visible": true,
+        "width": 1920
+    }
+}

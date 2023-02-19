@@ -1,0 +1,429 @@
+<html>
+
+	<head>
+	
+		<link rel="icon" href="assets/icons/icon.ico">
+        <link href='./css/ui-core.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/ui.css' media="screen" rel="stylesheet" type="text/css" />
+	
+		<title>Bubble Wars Map</title>
+
+        <style>
+
+            body
+            {
+                background-image: url('./css/bg_tmp.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+				
+				--ui-scale: 1;
+            }
+
+            #map_background
+            {
+                background-color: #00147abd;
+            }
+
+            #ui_right
+            {
+                width: 400px;
+                height: 90vh;
+                background-color: rgba(255, 255, 255, .3);
+            }
+
+            #ui_right .content
+            {
+                padding-top: 20px;
+                box-sizing: border-box;
+                pointer-events: all;
+            }
+
+        </style>
+	
+	</head>
+	
+	<body data-cursor='default'>
+	
+		<div id='container'>
+
+            <div class='window-container' id='world_map'>
+                <div id='map_handle' data-handle='world_map' class='title' data-text='World Map'>World Map</div>
+
+                <div class='content'>
+                    <canvas id='map_background'></canvas>
+                    <canvas id='map'></canvas>
+                    <canvas id='point_lines'></canvas>
+
+                    <div id='world_map_points'></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class='window-container' id='ui_right'>
+            <div id='ui_right_handle' data-handle='ui_right' class='title' data-text='Menu'>Menu</div>
+
+            <div class='content'>
+                <div>
+                    <span>Load Dimension: </span>
+                    <select id='dim_select' value='none'>
+                        <option value='none'>---</option>
+                        <option value='OVERWORLD'>Overworld</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>
+                        MapPencil
+                        <input type='radio' name='draw_select' value='0' checked />
+                    </label>
+
+                    <label>
+                        Point
+                        <input type='radio' name='draw_select' value='1'/>
+                    </label>
+                </div>
+
+                <div>Current Hex: <span id='current_hex'></span></div>
+            </div>
+        </div>
+
+
+        <script>
+            var TREAT_AS_DATA = true;
+
+            var SETTINGS = 
+            {
+                MAP_TILES_X: 30,
+                MAP_TILES_Y: 20,
+
+                HEX_ANGLE: 2 * Math.PI / 6
+            };
+
+            document.getElementById('dim_select').addEventListener('change', function(){loadDimensionMap(this.value.toUpperCase())});
+            document.getElementsByName('draw_select').forEach(e => e.addEventListener('click', function(){DrawType = this.value}));
+
+        </script>
+		<script type="text/javascript" src="./assets/GAME.js"></script>
+		<script type="text/javascript" src="scripts/Debug.js"></script>
+
+        <script>
+
+            DraggableWindow.Init(document.getElementById('map_handle'), true);
+            DraggableWindow.Init(document.getElementById('ui_right_handle'), {x: '100%', translateX: '-100%', y: '50%', translateY: '-50%'});
+
+            var MAP = createEmptyMap();
+            var POINTS = [];
+            var ACTIVE_HEX = [];
+            var DrawType = 0;       //0: Hex, 1: Point
+            var LIGHTMAP = [];
+
+            function getTileSize()
+            {
+                
+                var map_container = document.getElementById('world_map');
+                var s = window.getComputedStyle(map_container);
+                var height = s.height.replace('px', '');
+
+                return height / SETTINGS.MAP_TILES_Y;
+            }
+
+            function getTileR()
+            {
+                return Math.ceil(getTileSize() / (2 * Math.sin(SETTINGS.HEX_ANGLE)));
+            }
+
+            function createEmptyMap()
+            {
+                var m = [];
+                for(var i = 0; i < SETTINGS.MAP_TILES_Y; i++)
+                {
+                    m[i] = [];
+                    for(var j = 0; j < SETTINGS.MAP_TILES_X; j++)
+                    {
+                        m[i][j] = false;
+                    }
+                }
+
+                return m;
+            }
+
+            function drawPoint(x, y, info)
+            {
+                var container = document.getElementById('world_map_points');
+
+                var p = document.createElement('div');
+                    p.className = 'point';
+                    p.style.top = y + 'px';
+                    p.style.left = x + 'px';
+					p.dataset.name = info.locationData.name;
+
+                container.appendChild(p);
+            }
+
+            var drawingActiveHex = false;
+
+            function drawHexagon(ctx, x, y, r = getTileR(), hexagon_info)
+            {
+                var a = SETTINGS.HEX_ANGLE;
+
+                var color = null;
+                var stroke = '#00157A';
+                var strokeSize = 2;
+                var alpha = 1;
+
+                if(hexagon_info)
+                {
+                    if(hexagon_info.isMapTile) 
+                    {
+                        color = '#00157A';
+                        alpha = .95;
+
+                        if(hexagon_info.isActiveMapTile)
+                        {
+                            color = '#083BB6';
+                            alpha = .95;
+                            stroke = '#083BB6';
+                            //0055FF - stroke
+                        }
+                    }
+                }
+
+                if(drawingActiveHex)
+                {
+                    color = '#f0cb16';
+                    alpha = .5;
+                }
+
+                ctx.save();
+                    ctx.fillStyle = color;
+                    ctx.lineWidth = strokeSize;
+                    ctx.strokeStyle  = stroke;
+                    ctx.globalAlpha = alpha;
+
+                    ctx.beginPath();
+                    for (var i = 0; i < 6; i++) 
+                    {
+                        ctx.lineTo(x + r * Math.cos(a * i), y + r * Math.sin(a * i));
+                    }
+                    ctx.closePath();
+                    if(color) ctx.fill();
+                    if(stroke) ctx.stroke();
+
+                ctx.restore();
+            }
+
+            function drawHexeGrid(ctx, map, hexR, isBackgroundLayer = false) 
+            {
+                var tileSize = getTileSize();
+                var a = SETTINGS.HEX_ANGLE;
+                var startX = -hexR;
+                var x;
+                var y = -hexR;
+
+                var tmp_canvas = document.createElement('canvas');
+                    tmp_canvas.width = tileSize * SETTINGS.MAP_TILES_X;
+                    tmp_canvas.height = tileSize * SETTINGS.MAP_TILES_Y;
+                var tmp_ctx = tmp_canvas.getContext('2d');
+
+                var width = SETTINGS.MAP_TILES_X;
+                var height = SETTINGS.MAP_TILES_Y;
+                var tilesMargin = 1;
+
+                for(var i = -tilesMargin; i < height + tilesMargin; i++)
+                {
+                    y += hexR * 2 * Math.sin(a);
+                    x = startX;
+
+                    for(var j = -tilesMargin; j < width + tilesMargin; j++)
+                    {
+                        x += hexR * (1 + Math.cos(a));
+                        y += (-1) ** (j) * hexR * Math.sin(a);
+
+                        var hexagon_info = null;
+                        if(map?.[i]?.[j] != null)
+                        {
+                            hexagon_info = Dimension.getHexData(j, i, map, POINTS, LIGHTMAP);
+                        }
+                        
+                        // if(!hexagon_info && isBackgroundLayer) continue;
+                        if(!hexagon_info?.isMapTile && !isBackgroundLayer) continue;
+
+                        if(hexagon_info?.isActiveMapTile) drawHexagon(tmp_ctx, x, y, hexR, hexagon_info);
+                        else drawHexagon(ctx, x, y, hexR, hexagon_info);
+                        
+                        if(hexagon_info?.locationPoint) drawPoint(x, y, hexagon_info.locationPoint);
+                    }
+                }
+
+                ctx.save();
+                ctx.shadowColor = "#0055FF";
+                ctx.shadowBlur = 0;
+                    for(var x = -2; x <= 2; x++){
+                    // Y offset loop
+                    for(var y = -2; y <= 2; y++){
+                        // Set shadow offset
+                        ctx.shadowOffsetX = x;
+                        ctx.shadowOffsetY = y;
+
+                        // Draw image with shadow
+                        ctx.drawImage(tmp_canvas, 0, 0, tmp_canvas.width, tmp_canvas.height);
+                    }
+                }
+                ctx.restore();
+            }
+
+
+
+            function drawMap()
+            {
+                var tileSize = getTileSize();
+                LIGHTMAP = Dimension.getLightMap(MAP, POINTS);
+
+                var bg_canvas = document.getElementById('map_background');
+                    bg_canvas.width = tileSize * SETTINGS.MAP_TILES_X;
+                    bg_canvas.height = tileSize * SETTINGS.MAP_TILES_Y;
+
+                var canvas = document.getElementById('map');
+                    canvas.width = tileSize * SETTINGS.MAP_TILES_X;
+                    canvas.height = tileSize * SETTINGS.MAP_TILES_Y;
+
+                var bg_ctx = bg_canvas.getContext('2d');
+                var ctx = canvas.getContext('2d');
+
+                bg_ctx.clearRect(0, 0, bg_canvas.width, bg_canvas.height);
+                document.getElementById('world_map_points').innerHTML = '';
+
+                drawHexeGrid(bg_ctx, createEmptyMap(), getTileR(), true);
+                drawHexeGrid(ctx, MAP, getTileR());
+
+                drawingActiveHex = true;
+                drawHexeGrid(ctx, ACTIVE_HEX, getTileR());
+                drawingActiveHex = false;
+            }
+
+            var mouseDraw = false;
+            var mouseClear = false;
+
+            document.getElementById('world_map').addEventListener('mousemove', function(e){getHexTileIndex(e.clientX, e.clientY)});
+            document.getElementById('world_map').addEventListener('mousedown', function(e){
+                if(e.button == 0) mouseDraw = true;
+                else if(e.button == 2) mouseClear = true;
+                getHexTileIndex(e.clientX, e.clientY);
+            });
+            document.getElementById('world_map').addEventListener('mouseup', function(){
+                mouseDraw = false;
+                mouseClear = false;
+            });
+
+            document.getElementById('world_map').addEventListener('contextmenu', function(e){
+                e.preventDefault();
+            });
+
+            function getHexTileIndex(mouseX, mouseY)
+            {
+                var map_container = document.getElementById('world_map');
+                // var s = window.getComputedStyle(map_container);
+                // var height = s.height.replace('px', '');
+                var rect = map_container.getBoundingClientRect();
+
+                var tileHeight = getTileSize();
+                var tileWidth = getTileR() * (1 + Math.cos(SETTINGS.HEX_ANGLE));
+
+                var offsetX = -tileWidth;
+                var offsetY = -tileHeight;
+
+                var relativeX = mouseX - rect.x + offsetX;
+                var relativeY = mouseY - rect.y + offsetY;
+
+                
+
+               
+
+                var indexY = Math.floor(relativeY / tileHeight);
+                var indexX = Math.floor(relativeX / tileWidth);
+
+                var last_active = JSON.stringify(ACTIVE_HEX);
+
+                ACTIVE_HEX = [[]];
+                ACTIVE_HEX[indexY] = [];
+                ACTIVE_HEX[indexY][indexX] = true;
+
+                if(indexY < 0 || indexY > SETTINGS.MAP_TILES_Y || indexX < 0 || indexX > SETTINGS.MAP_TILES_X) ACTIVE_HEX = [[]];
+
+                if(mouseDraw && MAP?.[indexY]?.[indexX] != null) 
+                {
+                    if(DrawType == 0) MAP[indexY][indexX] = true;
+                    if(DrawType == 1) addPoint(indexX, indexY);
+                }
+
+                if(mouseClear && MAP?.[indexY]?.[indexX] != null) 
+                {
+                    if(DrawType == 0) MAP[indexY][indexX] = false;
+                    if(DrawType == 1) removePoint(indexX, indexY);
+                }
+
+                if(JSON.stringify(ACTIVE_HEX) != last_active) 
+                {
+                    drawMap();
+                }
+
+                document.getElementById('current_hex').innerHTML = '(' + indexX + ', ' + indexY + ')';
+            }
+
+            
+
+            
+            function addPoint(x, y)
+            {
+                POINTS.push(new HexMapPoint(x, y,));
+                drawMap();
+            }
+
+            function removePoint(x, y)
+            {
+                for(var i = 0; i < POINTS.length; i++)
+                {
+                    if(POINTS[i].x == x && POINTS[i].y == y)
+                    {
+                        POINTS.splice(i, 1);
+                        break;
+                    }
+                }
+
+                drawMap();
+            }
+
+
+
+            drawMap();
+
+
+            function loadDimensionMap(dimName = 'OVERWORLD')
+            {
+                var world = World.DimensionsList[dimName];
+                if(!world) return;
+				
+				var p = [];
+				for(var i in World.LocationList)
+				{
+					if(World.LocationList[i].Dimension != dimName) continue;
+					if(World.LocationList[i].MapPos) 
+					{
+						var d = World.LocationList[i].MapPos;
+						d.locationData = {isCleared: true, name: i};
+						p.push(d);	
+					}
+				}
+
+                MAP = JSON.parse(JSON.stringify(world.HexMap));
+                POINTS = p;
+
+                drawMap();
+            }
+
+        </script>
+	
+	</body>
+	
+</html>

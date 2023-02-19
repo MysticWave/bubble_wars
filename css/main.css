@@ -1,0 +1,213 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    font-family: Helvetica, Arial;
+    font-weight: bold;
+    font-style: italic;
+}
+
+:root
+{
+    --scale: 1;
+    --ui-scale: 1;
+
+    --ingame-icon-size: 50px;
+    --slot-size: 50px;
+
+	--base-color: white;
+    --base-color-hover:#4dacff;
+	--base-color-stroke: #0088ff;
+    --font-size: 20px;
+
+
+
+    --color-rank-s: #ffe30f;
+    --color-rank-a: #39ef00;
+    --color-rank-b: #3eb5ff;
+    --color-rank-c: #e337f8;
+    --color-rank-d: #fe5757;
+    --color-rank-f: #afafaf;
+
+
+    --color-grade-normal: lightgreen;
+    --color-grade-common: rgb(97, 255, 97);
+    --color-grade-rare: #1A77FF;
+    --color-grade-mythical: #A931FF;
+    --color-grade-legendary: #FFAD36;
+
+    --color-grade-angelic: #00d9ff;
+    --color-grade-demonic: #a10000;
+    --color-grade-divine: #e4e001;
+    
+    
+    
+
+    --color-item-lore: violet;
+    --color-item-price: yellow;
+    --color-item-negative: #FF5F5F;
+
+    --item-info-line-height: 23px;
+}
+
+[data-childpointers='none'] > *
+{
+    pointer-events: none !important;
+}
+
+.text-stroke
+{
+    text-shadow:
+        -1px -1px 0 var(--stroke-color, var(--base-color-stroke)),  
+        1px -1px 0 var(--stroke-color, var(--base-color-stroke)),
+        -1px  1px 0 var(--stroke-color, var(--base-color-stroke)),
+        1px  1px 0 var(--stroke-color, var(--base-color-stroke));
+}
+
+.text-stroke-2
+{
+    text-shadow:
+        -2px -2px 0 var(--stroke-color, var(--base-color-stroke)),  
+        2px -2px 0 var(--stroke-color, var(--base-color-stroke)),
+        -2px  2px 0 var(--stroke-color, var(--base-color-stroke)),
+        2px  2px 0 var(--stroke-color, var(--base-color-stroke)),
+
+        0px  -2px 0 var(--stroke-color, var(--base-color-stroke)),
+        0px  2px 0 var(--stroke-color, var(--base-color-stroke)),
+        2px  0px 0 var(--stroke-color, var(--base-color-stroke)),
+        -2px  0px 0 var(--stroke-color, var(--base-color-stroke));
+}
+
+body
+{
+    background-color: rgb(20, 20, 20);
+
+    font-size: var(--font-size);
+    color: var(--base-color);
+}
+
+#game_container
+{
+    background-color: lightgray;
+
+    position: fixed;
+        top: 50%;
+        left: 50%;
+}
+
+#render_layers > canvas
+{
+    height: 100%;
+    float: left;
+    position: absolute;
+
+    z-index: var(--index, 1);
+    pointer-events: none;
+}
+
+
+#canvas
+{
+    pointer-events: all !important;
+}
+
+
+body
+{
+    cursor: url('../assets/textures/gui/cursor_default.png'), default;	
+}
+body:active
+{
+    cursor: url('../assets/textures/gui/cursor_click.png'), default;	
+}
+
+body[data-cursor='ingame'] #canvas
+{
+    cursor: url('../assets/textures/gui/cursor_ingame.png') 16 16, none;
+}
+
+
+
+img
+{
+    -webkit-user-drag: none;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+.confirm_container
+{
+	position: fixed;
+		top: 0px;
+		left: 0px;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+
+	z-index: 999;
+	background-color: rgba(0,0,0,.9);
+}
+
+.confirm_container .box
+{
+	--scale: 1.5;
+	width: calc(350px * var(--ui-scale));
+	height: max-content;
+	background-color: #292a2d;
+	color: gray;
+	text-align: center;
+	padding: calc(20px * var(--ui-scale));
+	border-radius: calc(10px * var(--ui-scale));
+
+	animation-name: pop-up;
+	animation-duration: .25s;
+	animation-timing-function: ease-out;
+	
+	font-size: calc(16px * var(--ui-scale));
+}
+
+.confirm_container .box .warning
+{
+	color: rgb(148, 44, 44);
+	font-size: calc(30px * var(--ui-scale));
+}
+
+.confirm_container .box .button
+{
+    display: inline-block;
+	width: calc(100px * var(--ui-scale));
+	height: calc(40px * var(--ui-scale));
+	line-height: calc(40px * var(--ui-scale));
+	margin: 0px calc(15px * var(--ui-scale));
+	border-radius: calc(5px * var(--ui-scale));
+
+	outline: none;
+	border: 1px solid gray;
+	background-color: transparent;
+	color: #799dd7;
+	font-size: calc(20px * var(--ui-scale));
+}
+.confirm_container .box .button:hover
+{
+	color: #292a2d;
+	background-color: #799dd7;
+}
+.confirm_container .box p
+{
+	margin-bottom: 20px;
+}

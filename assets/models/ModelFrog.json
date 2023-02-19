@@ -1,0 +1,1404 @@
+{
+	"name": "Model",
+	"type": "Model",
+	"isArmor": false,
+	"width": 512,
+	"height": 512,
+	"p_width": 15,
+	"p_height": 15,
+	"move": false,
+	"scale": 1,
+	"Scale": 1,
+	"mirrored": false,
+	"hitbox": [
+		32,
+		64
+	],
+	"diffX": 10,
+	"divvY": 0,
+	"rotationOfsset": [
+		0,
+		0
+	],
+	"position": [
+		581.5,
+		470.5
+	],
+	"endPosition": [
+		581.5,
+		470.5
+	],
+	"offset": [
+		0,
+		0
+	],
+	"rotation": 0,
+	"selfRotation": 0,
+	"armorModel": null,
+	"parts": [
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": null,
+			"isArmor": false,
+			"name": "body",
+			"id": 0,
+			"renderIndex": 0,
+			"mirrorIndex": 1,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 512,
+			"height": 512,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.base",
+			"lockRotate": true,
+			"position": [
+				581.5,
+				470.5
+			],
+			"endPosition": [
+				581.5,
+				470.5
+			],
+			"rotationOfsset": [
+				256,
+				256
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 0,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				512,
+				512
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 0,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": null,
+			"isArmor": false,
+			"name": "hand_pivot_left",
+			"id": 1,
+			"renderIndex": -2,
+			"mirrorIndex": -2,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 115,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				581.5,
+				470.5
+			],
+			"endPosition": [
+				481.9070785647896,
+				413
+			],
+			"rotationOfsset": [
+				10,
+				0
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -240,
+			"scale": 1,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -240,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 1,
+			"isArmor": false,
+			"name": "hand_left_1",
+			"id": 2,
+			"renderIndex": 3,
+			"mirrorIndex": 2,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 166,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.hand.1",
+			"lockRotate": false,
+			"position": [
+				481.9070785647896,
+				413
+			],
+			"endPosition": [
+				387.651068712978,
+				456.9522992210327
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 65,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				166
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 305,
+			"rotationStatic": false,
+			"x": 382.651068712978,
+			"y": 451.9522992210327
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 2,
+			"isArmor": false,
+			"name": "hand_left_2",
+			"id": 3,
+			"renderIndex": 2,
+			"mirrorIndex": 3,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 166,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.hand.2",
+			"lockRotate": false,
+			"position": [
+				387.651068712978,
+				456.9522992210327
+			],
+			"endPosition": [
+				320.8011573055779,
+				377.283677136659
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -220,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				166
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -285,
+			"rotationStatic": false,
+			"x": 315.8011573055779,
+			"y": 372.283677136659
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 3,
+			"isArmor": false,
+			"name": "hand_left_3",
+			"id": 4,
+			"renderIndex": 1,
+			"mirrorIndex": 4,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 180,
+			"height": 156,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.hand.3",
+			"lockRotate": false,
+			"position": [
+				320.8011573055779,
+				377.283677136659
+			],
+			"endPosition": [
+				298.0604991192091,
+				286.0758788667153
+			],
+			"rotationOfsset": [
+				90,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -194,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				180,
+				156
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 26,
+			"rotationStatic": false,
+			"x": 293.0604991192091,
+			"y": 281.0758788667153
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": null,
+			"isArmor": false,
+			"name": "hand_pivot_right",
+			"id": 5,
+			"renderIndex": -2,
+			"mirrorIndex": -2,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 115,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				581.5,
+				470.5
+			],
+			"endPosition": [
+				681.0929214352104,
+				413
+			],
+			"rotationOfsset": [
+				10,
+				0
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -120,
+			"scale": 1,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -120,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 5,
+			"isArmor": false,
+			"name": "hand_right_1",
+			"id": 6,
+			"renderIndex": 6,
+			"mirrorIndex": 2,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 166,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.hand.1",
+			"lockRotate": false,
+			"position": [
+				681.0929214352104,
+				413
+			],
+			"endPosition": [
+				775.348931287022,
+				456.9522992210327
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -65,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				166
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 55,
+			"rotationStatic": false,
+			"x": 770.348931287022,
+			"y": 451.9522992210327
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 6,
+			"isArmor": false,
+			"name": "hand_right_2",
+			"id": 7,
+			"renderIndex": 5,
+			"mirrorIndex": 3,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 166,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.hand.2",
+			"lockRotate": false,
+			"position": [
+				775.348931287022,
+				456.9522992210327
+			],
+			"endPosition": [
+				835.0008806675307,
+				371.7604866149776
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -145,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				166
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -80,
+			"rotationStatic": false,
+			"x": 830.0008806675307,
+			"y": 366.7604866149776
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 7,
+			"isArmor": false,
+			"name": "hand_right_3",
+			"id": 8,
+			"renderIndex": 4,
+			"mirrorIndex": 4,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 180,
+			"height": 156,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.hand.3",
+			"lockRotate": false,
+			"position": [
+				835.0008806675307,
+				371.7604866149776
+			],
+			"endPosition": [
+				865.6042871865035,
+				282.8817405086418
+			],
+			"rotationOfsset": [
+				90,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				-1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -161,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				180,
+				156
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -16,
+			"rotationStatic": false,
+			"x": 860.6042871865035,
+			"y": 277.8817405086418
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": null,
+			"isArmor": false,
+			"name": "leg_pivot_left",
+			"id": 9,
+			"renderIndex": -2,
+			"mirrorIndex": -2,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 200,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				581.5,
+				470.5
+			],
+			"endPosition": [
+				505.42871288667413,
+				633.635401666597
+			],
+			"rotationOfsset": [
+				10,
+				10
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 25,
+			"scale": 1,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 25,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 9,
+			"isArmor": false,
+			"name": "leg_left_1",
+			"id": 10,
+			"renderIndex": 10,
+			"mirrorIndex": 10,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 180,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.leg.1",
+			"lockRotate": false,
+			"position": [
+				505.42871288667413,
+				633.635401666597
+			],
+			"endPosition": [
+				403.23771524011033,
+				574.635401666597
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -240,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				180
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -265,
+			"rotationStatic": false,
+			"x": 398.23771524011033,
+			"y": 569.635401666597
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 10,
+			"isArmor": false,
+			"name": "leg_left_2",
+			"id": 11,
+			"renderIndex": 9,
+			"mirrorIndex": 11,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 200,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.leg.2",
+			"lockRotate": false,
+			"position": [
+				403.23771524011033,
+				574.635401666597
+			],
+			"endPosition": [
+				491.9424053768528,
+				680.349534817016
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -40,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				200
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 200,
+			"rotationStatic": false,
+			"x": 486.9424053768528,
+			"y": 675.349534817016
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 11,
+			"isArmor": false,
+			"name": "leg_left_3",
+			"id": 12,
+			"renderIndex": 8,
+			"mirrorIndex": 12,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 200,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.leg.3",
+			"lockRotate": false,
+			"position": [
+				491.9424053768528,
+				680.349534817016
+			],
+			"endPosition": [
+				356.0389354611681,
+				656.3860862989796
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -260,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				200
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -220,
+			"rotationStatic": false,
+			"x": 351.0389354611681,
+			"y": 651.3860862989796
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 12,
+			"isArmor": false,
+			"name": "leg_left_4",
+			"id": 13,
+			"renderIndex": 7,
+			"mirrorIndex": 4,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 180,
+			"height": 156,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.hand.3",
+			"lockRotate": false,
+			"position": [
+				356.0389354611681,
+				656.3860862989796
+			],
+			"endPosition": [
+				274.6325475054308,
+				609.3860862989796
+			],
+			"rotationOfsset": [
+				90,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -240,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				180,
+				156
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 20,
+			"rotationStatic": false,
+			"x": 269.6325475054308,
+			"y": 604.3860862989796
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": null,
+			"isArmor": false,
+			"name": "leg_pivot_right",
+			"id": 14,
+			"renderIndex": -2,
+			"mirrorIndex": -2,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 20,
+			"height": 200,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "hand",
+			"lockRotate": true,
+			"position": [
+				581.5,
+				470.5
+			],
+			"endPosition": [
+				657.5712871133259,
+				633.635401666597
+			],
+			"rotationOfsset": [
+				10,
+				10
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -25,
+			"scale": 1,
+			"mirrored": false,
+			"visible": false,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				20,
+				100
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -25,
+			"rotationStatic": false
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 14,
+			"isArmor": false,
+			"name": "leg_right_1",
+			"id": 15,
+			"renderIndex": 14,
+			"mirrorIndex": 10,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 180,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.leg.1",
+			"lockRotate": false,
+			"position": [
+				657.5712871133259,
+				633.635401666597
+			],
+			"endPosition": [
+				759.7622847598897,
+				574.635401666597
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -120,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				180
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -95,
+			"rotationStatic": false,
+			"x": 754.7622847598897,
+			"y": 569.635401666597
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 15,
+			"isArmor": false,
+			"name": "leg_right_2",
+			"id": 16,
+			"renderIndex": 13,
+			"mirrorIndex": 11,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 200,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.leg.2",
+			"lockRotate": false,
+			"position": [
+				759.7622847598897,
+				574.635401666597
+			],
+			"endPosition": [
+				699.267066502997,
+				698.668980055882
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": 26,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				200
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": 146,
+			"rotationStatic": false,
+			"x": 694.267066502997,
+			"y": 693.668980055882
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 16,
+			"isArmor": false,
+			"name": "leg_right_3",
+			"id": 17,
+			"renderIndex": 12,
+			"mirrorIndex": 12,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 80,
+			"height": 200,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.leg.3",
+			"lockRotate": false,
+			"position": [
+				699.267066502997,
+				698.668980055882
+			],
+			"endPosition": [
+				828.9446481714523,
+				651.4702002769397
+			],
+			"rotationOfsset": [
+				40,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -110,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				80,
+				200
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -136,
+			"rotationStatic": false,
+			"x": 823.9446481714523,
+			"y": 646.4702002769397
+		},
+		{
+			"type": "Part",
+			"length": 100,
+			"parent": 17,
+			"isArmor": false,
+			"name": "leg_right_4",
+			"id": 18,
+			"renderIndex": 11,
+			"mirrorIndex": 4,
+			"dirId": null,
+			"itemSlot": null,
+			"width": 180,
+			"height": 156,
+			"P_width": 10,
+			"P_height": 10,
+			"move": false,
+			"texture": "entity.frog.hand.3",
+			"lockRotate": false,
+			"position": [
+				828.9446481714523,
+				651.4702002769397
+			],
+			"endPosition": [
+				900.9528258246362,
+				591.048164966405
+			],
+			"rotationOfsset": [
+				90,
+				31
+			],
+			"textureOffset": [
+				0,
+				0
+			],
+			"textureTranslation": [
+				0,
+				0
+			],
+			"textureFlip": [
+				-1,
+				1
+			],
+			"FlipTextureOnMirror": true,
+			"Transform": [
+				100,
+				100
+			],
+			"offset": [
+				0,
+				0
+			],
+			"rotation": -130,
+			"scale": 1,
+			"mirrored": false,
+			"visible": true,
+			"Export": true,
+			"Transparency": 1,
+			"lengthAcross": "y",
+			"TextureSize": [
+				180,
+				156
+			],
+			"autoResizeLength": true,
+			"onRender": null,
+			"selfRotation": -20,
+			"rotationStatic": false,
+			"x": 895.9528258246362,
+			"y": 586.048164966405
+		}
+	],
+	"directories": [],
+	"events_cs": [
+		{
+			"name": "Update",
+			"text": [
+				"public override void Update(int x, int y)",
+				"{",
+				"\tbase.Update(x, y);",
+				"}"
+			],
+			"id": -1
+		},
+		{
+			"name": "Render",
+			"text": [
+				"public override void Render(SpriteBatch spriteBatch)",
+				"{",
+				"\tbase.Render(spriteBatch);",
+				"}"
+			],
+			"id": 1
+		}
+	],
+	"events_js": [
+		{
+			"name": "Update",
+			"text": [
+				"Update()",
+				"{",
+				"\tsuper.Update();",
+				"}"
+			],
+			"id": 0
+		},
+		{
+			"name": "Render",
+			"text": [
+				"Render(context)",
+				"{",
+				"\tsuper.Render(context);",
+				"}"
+			],
+			"id": 1
+		}
+	],
+	"imports": [
+		"System;",
+		"System.Collections.Generic;",
+		"System.Linq;",
+		"System.Text;",
+		"Microsoft.Xna.Framework;",
+		"Microsoft.Xna.Framework.Content;",
+		"Microsoft.Xna.Framework.GamerServices;",
+		"Microsoft.Xna.Framework.Graphics;",
+		"Microsoft.Xna.Framework.Input;",
+		"Microsoft.Xna.Framework.Media;",
+		"System.Diagnostics;",
+		"Helper;"
+	],
+	"x": 574,
+	"y": 463,
+	"diffY": 1,
+	"length": 0
+}

@@ -1,0 +1,206 @@
+﻿#navigator_up
+{
+	background-color: #333333;
+	width: 100%;
+	height: 25px;
+	float: right;
+}
+
+.navigator_up
+{
+	margin-top: 5px;
+	margin-left: 5px;
+	display: inline-block;
+	width: 100px;
+	float: left;
+	list-style-type: none;
+	height: 25px;
+}
+
+.navigator_up.right
+{
+	margin-right: 5px;
+	float: right;
+}
+
+.navigator_up > li
+{
+	cursor: pointer;
+	text-align: center;
+	height: 20px;
+}
+
+[data-extended]:hover > .extended
+{
+	display:block;
+}
+
+li > button
+{
+	outline: none;
+	border: none;
+	width: 100%;
+	height: 100%;
+	background: none;
+	text-align: left;
+	color: white;
+	font-size: 14px;
+}
+
+li > button:disabled
+{
+	color: gray;
+}
+
+li > button:enabled:hover
+{
+	cursor: pointer;
+}
+		
+
+
+.extended
+{
+	border: 2px solid #434343;
+	margin-top: -3px;
+	list-style-type: none;
+	display: none;
+	position: relative;
+		left: 101px;
+		top: -20px;
+	width: 102px;
+}
+
+.extended > li
+{
+	background-color: #333333;
+	text-align: left;
+	width: 100px;
+	height: 20px;
+	transition-duration: 0.2s;
+	border: 1px solid transparent;
+}
+
+.extended > li > span
+{
+	display: inline-block;
+	float: right;
+}
+
+.extended > li:hover
+{
+	cursor: pointer;
+	background-color: #2b3b4a;
+	border-color: #0091da;
+}
+
+
+
+
+
+
+.navigator_up > li:hover > .sub_navigator
+{
+	display: block;
+}
+
+.navigator_up > li > .sub_navigator
+{
+	border: 2px solid #434343;
+	margin-top: 3px;
+	list-style-type: none;
+	display: none;
+	position: absolute;
+}
+
+.sub_navigator > li
+{
+	background-color: #333333;
+	text-align: left;
+	width: 100px;
+	height: 20px;
+	transition-duration: 0.2s;
+	border: 1px solid transparent;
+	line-height: 20px;
+}
+
+.sub_navigator > li > span
+{
+	display: inline-block;
+	float: right;
+}
+
+.sub_navigator > li:hover
+{
+	cursor: pointer;
+	background-color: #2b3b4a;
+	border-color: #0091da;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+#navigator_left
+{
+	display: inline-block;
+	float: left;
+	background-color: #434343;
+	width: 180px;
+	height: calc(100vh - 26px);
+	border: 1px solid black;
+}
+
+.navigator_title
+{
+	width: 100%;
+	height: 20px;
+	background-color: #202020;
+	text-align: center;
+	font-size: 15px;
+}
+
+#navigator_right
+{
+	display: inline-block;
+	float: right;
+	background-color: #434343;
+	width: 180px;
+	height: calc(100vh - 26px);
+	border: 1px solid black;
+}
+
+hr
+{
+	margin-top: 6px;
+	margin-bottom: 6px;
+	width: 100%;
+	float: right;
+	border-color: gray;
+}
+
+p.title
+{
+	width: calc(100% - 5px);
+	height: 15px;
+	margin-top: 5px;
+	float: right;
+}
+
+p.title + div
+{
+	width: 100%;
+	margin-top: 3px;
+	margin-left: 5px;
+	float: left;
+}

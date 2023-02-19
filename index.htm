@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	
+		<meta http-equiv="author" content="MysticWave - Kedron Grzegorz" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<link rel="icon" href="assets/icons/icon.ico">
+		<link href='./css/main.css' media="screen" rel="stylesheet" type="text/css" />
+		<link href='./css/animations.css' media="screen" rel="stylesheet" type="text/css" />
+		<link href='./css/ui-core.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/ui.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/icons.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/custom-select.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/shaders.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/special_items.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/quest_log.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/save-selection.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/difficulties.css' media="screen" rel="stylesheet" type="text/css" />
+        <link href='./css/credits.css' media="screen" rel="stylesheet" type="text/css" />
+	
+		<title>Bubble Wars</title>
+	
+	</head>
+	
+	<body data-cursor='default'>
+	
+		<!-- <div id='game_container' oncontextmenu="return false"> -->
+		<div id='game_container'>
+			<span id='render_layers'>
+				<canvas id="canvas"></canvas>
+			</span>
+			<div id='ui_container'>
+				<div id='loading_screen' class='ui'>
+
+					<div id='loading_ready' data-translate="MENU.LOADING.READY" class='text-stroke'></div>
+
+					<div id='loading_progress' class='progress_bar'>
+						<div class='progress_bar_background_container'>
+							<div class='progress_bar_background bubble-progress'></div>
+						</div>
+						<div class='progress_bar_content text-stroke'></div>
+					</div>
+
+				</div>
+
+				<div id='menu' class='ui'>
+					<div id='menu_buttons' class='buttons'>
+						<div class='button text-stroke-2' id='menu_start' data-translate='MENU.START'></div>
+						<div class='button text-stroke-2' id='menu_settings' data-translate='MENU.SETTINGS'></div>
+						<div class='button text-stroke-2' id='menu_credits' data-translate='MENU.CREDITS'></div>
+						<div class='button text-stroke-2' id='menu_quit' data-translate='MENU.QUIT'></div>
+					</div>
+
+					<div class='text-stroke' id='menu_game_ver'></div>
+					<div class='text-stroke' id='menu_game_bubbles'></div>
+				</div>
+
+
+
+
+				<div id='ingame' class='ui'>
+					<div id="gui_top_left">
+						<div id='player_health_container'></div>
+						<div id='player_attack_bars_container'>
+							<div id='player_attack_charge' class='progress_bar'>
+								<div class='progress_bar_background_container'>
+									<div class='progress_bar_background'></div>
+								</div>
+							</div>
+
+							<div id='player_special_attack_charge' class='progress_bar'>
+								<div class='progress_bar_background_container'>
+									<div class='progress_bar_background'></div>
+								</div>
+							</div>
+						</div>
+
+						<div id="player_cooltime_container"></div>
+					</div>
+
+					<div id='boss_hp_bar_container' style='display: none'>
+						<div id='boss_hp_bar' class='progress_bar'>
+							<div class='progress_bar_background_container'>
+								<div class='progress_bar_background bubble-progress'></div>
+							</div>
+							<div class='progress_bar_content text-stroke'></div>
+						</div>
+						<div id='boss_name'></div>
+					</div>
+
+					<div id='location_radar'>
+						<canvas id='location_radar_canvas'></canvas>
+					</div>
+
+
+					<div id='player_level_container'>
+						<div id='player_level_bar' class='progress_bar'>
+							<div class='progress_bar_background_container'>
+								<div class='progress_bar_background bubble-progress'></div>
+							</div>
+							<div style='display: none' class='progress_bar_content text-stroke'></div>
+						</div>
+						<div id='player_level'></div>
+					</div>
+
+					<div id='bottom_nav_icons'>
+						<div class='icon' data-icon="close"></div>
+					</div>
+					<div id='bottom_nav_icon_list'>
+						<div id='ingame_button_inventory' class='icon' data-icon="world_map" data-title='Inventory' style="--order: 4"></div>
+						<div id='ingame_button_stats' class='icon' data-icon="world_map" data-title='Stats' style="--order: 3"></div>
+						<div id='ingame_button_world_map' class='icon' data-icon="world_map" data-title='World Map' style="--order: 2"></div>
+						<div id='ingame_button_quests' class='icon' data-icon="world_map" data-title='Quest Log' style="--order: 1"></div>
+						<div id='ingame_button_pause' class='icon' data-icon="pause" data-title='Pause' style="--order: 0"></div>
+					</div>
+					
+
+
+					<div class='window-container pop-up' id='inventory' data-open='false'>
+						<div id='inventory_handle' data-offsetparent='game_container' data-handle='inventory' class='title'></div>
+			
+						<div class='content'></div>
+
+						<div class='nav-bottom text-stroke'>
+							<span data-translate="OXYGEN"></span>:
+							<span id='player_oxygen'>0</span>
+						</div>
+
+					</div>
+
+
+					<div class='window-container pop-up' id='crafting' data-open='false'>
+						<div id='crafting_handle' data-offsetparent='game_container' data-handle='crafting' class='title'></div>
+						<div class='nav-top'></div>
+						<div class='content'>
+							<div id='section_crafting' class='section'>
+								<div class="section-content">
+									<div id='section_crafting_slots'></div>
+								</div>
+								<div class="nav-bottom">
+									<div id='possible_crafting_results'></div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class='window-container pop-up' id='appearance' data-open='false'>
+						<div id='appearance_handle' data-offsetparent='game_container' data-handle='appearance' class='title'></div>
+						<div class='skins_container'>
+							<div class='slider_arrow left' data-id='skin_list' data-step='-1'></div>
+							<div id='skins'></div>
+							<div class='slider_arrow right' data-id='skin_list' data-step='1'></div>
+						</div>
+					</div>
+
+
+					<div class='window-container pop-up' id='shop' data-open='false'>
+						<div id='shop_handle' data-offsetparent='game_container' data-handle='shop' class='title'></div>
+			
+						<div class='content'></div>
+					</div>
+
+
+
+					<div class='window-container pop-up' id='large_shop' data-open='false'>
+						<div id='large_shop_handle' data-offsetparent='game_container' data-handle='large_shop' class='title'></div>
+			
+						<div class='content'></div>
+					</div>
+
+
+					<div class='window-container pop-up' id='inventory_equips' data-open='false'>
+						<div id='inventory_equips_handle' data-offsetparent='game_container' data-handle='inventory_equips' class='title'></div>
+			
+						<div class='content' id='inventory_equips_content'></div>
+					</div>
+
+					<div class='window-container pop-up' id='player_stats' data-open='false'>
+						<div id='player_stats_handle' data-offsetparent='game_container' data-handle='player_stats' class='title'>
+							<div id="difficulty_icon" class="icon" data-icon=""></div>
+						</div>
+			
+						<div class='content text-stroke'>
+							<div class='line'>
+								<span data-translate="STAT.EXP"></span>:
+								<span id='player_stat_exp'></span>
+							</div>
+							<div class='line'></div>
+
+							<div class='line'>
+								<span data-translate="STAT.LIFE"></span>:
+								<span id='player_stat_hp'></span>
+							</div>
+							<div class='line'>
+								<span id="player_stat_defense_name" data-translate="DEFENSE"></span>:
+								<span id='player_stat_def'>0</span>
+							</div>
+							<div class='line'>
+								<span data-translate="AD"></span>:
+								<span id='player_stat_ad'></span>
+							</div>
+							<div class='line'>
+								<span data-translate="ATTACK_SPEED"></span>:
+								<span id='player_stat_attack_speed'></span>
+							</div>
+							<div class='line'>
+								<span data-translate="STAT.ATTACK_RANGE"></span>:
+								<span id='player_stat_attack_range'></span>
+							</div>
+							<div class='line'>
+								<span data-translate="SPD"></span>:
+								<span id='player_stat_spd'></span>
+							</div>
+							<div class='line'></div>
+
+							<div class='line sp' id='player_stat_available_sp'>
+								<span data-translate="STAT.SP"></span>
+							</div>
+
+							<span id='player_stat_sp_stats'>
+								<div class='line'>
+									<span class='sp_button' data-stat="HARDNESS">[+]</span>
+									<span class="sp_stat_name" data-translate="HARDNESS"></span>:
+									<span id='player_stat_hardness'>0</span>
+								</div>
+
+								<div class='line'>
+									<span class='sp_button' data-stat="POWER">[+]</span>
+									<span class="sp_stat_name" data-translate="POWER"></span>:
+									<span id='player_stat_power'>0</span>
+								</div>
+
+								<div class='line'>
+									<span class='sp_button' data-stat="DEXTERITY">[+]</span>
+									<span class="sp_stat_name" data-translate="DEXTERITY"></span>:
+									<span id='player_stat_dexterity'>0</span>
+								</div>
+
+								<div class='line'>
+									<span class='sp_button' data-stat="CHARGE">[+]</span>
+									<span class="sp_stat_name" data-translate="CHARGE"></span>:
+									<span id='player_stat_charge'>0</span>
+								</div>
+
+								<div class='line'>
+									<span class='sp_button' data-stat="AMMO_COST">[+]</span>
+									<span class="sp_stat_name" data-translate="AMMO_COST"></span>:
+									<span id='player_stat_ammo_cost'>0</span>
+								</div>
+							</span>
+						</div>
+					</div>
+
+
+					<div class='window-container pop-up' id='quests' data-open='false'>
+						<div id='quests_handle' data-offsetparent='game_container' data-handle='quests' class='title'></div>
+			
+						<div id="quest_list" class='content'></div>
+					</div>
+
+
+
+					<div class='window-container pop-up' id='world_map' data-open='false'>
+						<div id='world_map_handle' data-offsetparent='game_container' data-handle='world_map' class='title'></div>
+			
+						<div class='content'>
+							<canvas id='map_background'></canvas>
+							<canvas id='map'></canvas>
+							<canvas id='point_paths'></canvas>
+
+							<div id='world_map_points'></div>
+						</div>
+					</div>
+
+
+					<div class='window-container pop-up' id='knowledge' data-open='false'>
+						<div id='knowledge_handle' data-offsetparent='game_container' data-handle='knowledge' class='title'></div>
+			
+						<div class='content'>
+							<div id="knowledge_location_list" class="text-stroke-2"></div>
+							<div id="knowledge_location_info"></div>
+						</div>
+					</div>
+
+
+					<div class='window-container pop-up' id='difficulty' data-open='false'>
+						<div id='difficulty_handle' data-offsetparent='game_container' data-handle='difficulty' class='title'></div>
+						<div class='container'>
+							<div class="difficulty" id="difficulty_select_easy">
+								<div class="icon" data-icon="difficulty_easy"></div>
+								<div class="name" data-translate="DIFFICULTY.EASY.NAME"></div>
+								<div class="info" data-translate="DIFFICULTY.EASY.DESCRIPTION"></div>
+							</div>
+
+							<div class="difficulty" id="difficulty_select_normal">
+								<div class="icon" data-icon="difficulty_normal"></div>
+								<div class="name" data-translate="DIFFICULTY.MEDIUM.NAME"></div>
+								<div class="info" data-translate="DIFFICULTY.MEDIUM.DESCRIPTION"></div>
+							</div>
+
+							<div class="difficulty" id="difficulty_select_hard">
+								<div class="icon" data-icon="difficulty_hard"></div>
+								<div class="name" data-translate="DIFFICULTY.HARD.NAME"></div>
+								<div class="info" data-translate="DIFFICULTY.HARD.DESCRIPTION"></div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+				<div id='talk_with' class='ui'>
+					<div id='dialog_window' class='text-stroke'>
+						<div class='content'>
+							<div id='dialog_content'></div>
+							<div id='dialog_options'></div>
+						</div>
+					</div>
+				</div>
+
+
+				<div id='pause' class='ui'>
+					<div id='pause_buttons' class='buttons'>
+						<div class='button text-stroke-2' id='pause_continue' data-translate='MENU.CONTINUE'></div>
+						<div class='button text-stroke-2' id='pause_settings' data-translate='MENU.SETTINGS'></div>
+						<div class='button text-stroke-2' id='pause_quit' data-translate='MENU.QUIT'></div>
+					</div>
+				</div>
+
+
+				<div id='death_screen' class='ui'>
+					<div class='text-stroke-2' id='death_screen_quote'></div>
+					<div class='button text-stroke-2' id='death_screen_respawn' data-translate='DEATH_SCREEN.RESPAWN'></div>
+				</div>
+
+
+				<div id="save_selection" class="ui">
+					<div class='window-container pop-up' id='save_selection_gui'>
+						<div id='save_selection_handle' data-offsetparent='game_container' data-handle='save_selection_gui' class='title'></div>
+						<div class='saves_container'>
+							<div id='saves'></div>
+							<div id="saves_nav_bottom"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<div id='settings' class='ui'>
+					<div class='window-container' id='settings_window'>
+						<div id='settings_window_handle' data-offsetparent='game_container' data-handle='settings_window' class='title'></div>
+			
+						<div class='content'>
+							<div class='nav-left'>
+								<div class='item' data-setting='General' data-opensection='settings_general' data-sectionclass='settings_scene' data-locked='true'>
+									<div class='icon' data-icon='settings-general'></div>
+									<div class='title' data-translate='MENU.SETTINGS.GENERAL'></div>
+								</div>
+
+								<div class='item' data-setting='Sound' data-opensection='settings_audio' data-sectionclass='settings_scene'>
+									<div class='icon' data-icon='settings-audio'></div>
+									<div class='title' data-translate='MENU.SETTINGS.AUDIO'></div>
+								</div>
+
+								<div class='item' data-setting='Video' data-opensection='settings_video' data-sectionclass='settings_scene'>
+									<div class='icon' data-icon='settings-video'></div>
+									<div class='title' data-translate='MENU.SETTINGS.VIDEO'></div>
+								</div>
+
+								<div class='item' data-setting='Controls' data-opensection='settings_controls' data-sectionclass='settings_scene'>
+									<div class='icon' data-icon='settings-controls'></div>
+									<div class='title' data-translate='MENU.SETTINGS.CONTROLS'></div>
+								</div>
+							</div>
+
+
+							<div class='nav-right'>
+								<div id='settings_general' class='settings_scene' data-open='true'>
+									<div class='title text-stroke-2' data-translate="MENU.SETTINGS.GENERAL"></div>
+
+									<div class='settings_container text-stroke'>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.GENERAL.SHOWDAMAGEDEALT"></div>
+											<input type='checkbox' data-setting='General.ShowDamageDealt' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.GENERAL.SHOWDAMAGERECEIVED"></div>
+											<input type='checkbox' data-setting='General.ShowDamageReceived' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.GENERAL.SHOWMINIMAP"></div>
+											<input type='checkbox' data-setting='General.showMinimap' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.GENERAL.SHOWRADAR"></div>
+											<input type='checkbox' data-setting='General.showRadar' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.GENERAL.SHOWITEMPRICE"></div>
+											<input type='checkbox' data-setting='General.AlwaysShowItemPrice' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.GENERAL.ALLOWWINDOWDRAG"></div>
+											<input type='checkbox' data-setting='General.AllowDraggableWindows' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.GENERAL.ALWAYSREPOSEWINDOWS"></div>
+											<input type='checkbox' data-setting='General.AlwaysReposeWindows' />
+										</div>
+
+									</div>
+								</div>
+
+								<div id='settings_audio' class='settings_scene'>
+									<div class='title text-stroke-2' data-translate="MENU.SETTINGS.AUDIO"></div>
+
+									<div class='settings_container text-stroke'>
+										<div class='setting slider'>
+											<div class='name' data-translate="MENU.SETTINGS.AUDIO.VOLUME.OVERALL"></div>
+											<input type='range' min='0' max='100' data-setting='Sound.General' />
+										</div>
+
+										<div class='setting slider'>
+											<div class='name' data-translate="MENU.SETTINGS.AUDIO.VOLUME.MUSIC"></div>
+											<input type='range' min='0' max='100' data-setting='Sound.Music' />
+										</div>
+
+										<div class='setting slider'>
+											<div class='name' data-translate="MENU.SETTINGS.AUDIO.VOLUME.EFFECTS"></div>
+											<input type='range' min='0' max='100' data-setting='Sound.Effects' />
+										</div>
+									</div>
+								</div>
+
+
+								<div id='settings_video' class='settings_scene'>
+									<div class='title text-stroke-2' data-translate="MENU.SETTINGS.VIDEO"></div>
+
+									<div class='settings_container text-stroke'>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.VIDEO.FULLSCREEN"></div>
+											<input type='checkbox' data-setting='Video.isFullscreen' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.VIDEO.RESOLUTION"></div>
+											<span id='settings_video_resolution_container'></span>
+										</div>
+
+										<div class='setting slider'>
+											<div class='name' data-translate="MENU.SETTINGS.VIDEO.UI_SCALE"></div>
+											<input type='range' min='50' max='150' data-setting='Video.UI_Scale' />
+										</div>
+
+									</div>
+								</div>
+
+
+								<div id='settings_controls' class='settings_scene'>
+									<div class='title text-stroke-2' data-translate="MENU.SETTINGS.CONTROLS"></div>
+
+									<div class='settings_container text-stroke'>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.ALWAYSDASHTOWARDCURSOR"></div>
+											<input type='checkbox' data-setting='Controls.AlwaysDashTowardCursor' />
+										</div>
+
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.PLAYERMOVEUP"></div>
+											<input type='text' data-type='key' data-setting='Controls.PlayerMoveUp' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.PLAYERMOVEDOWN"></div>
+											<input type='text' data-type='key' data-setting='Controls.PlayerMoveDown' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.PLAYERMOVELEFT"></div>
+											<input type='text' data-type='key' data-setting='Controls.PlayerMoveLeft' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.PLAYERMOVERIGHT"></div>
+											<input type='text' data-type='key' data-setting='Controls.PlayerMoveRight' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.INTERACT"></div>
+											<input type='text' data-type='key' data-setting='Controls.Interact' />
+										</div>
+
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.SKILL"></div>
+											<input type='text' data-type='key' data-setting='Controls.UseItemSkill' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.ITEM"></div>
+											<input type='text' data-type='key' data-setting='Controls.UseItem' />
+										</div>
+
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.OPENINVENTORY"></div>
+											<input type='text' data-type='key' data-setting='Controls.OpenInventory' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.OPENMINIMAP"></div>
+											<input type='text' data-type='key' data-setting='Controls.OpenMap' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.OPENMAP"></div>
+											<input type='text' data-type='key' data-setting='Controls.OpenWorldMap' />
+										</div>
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.OPENSTATS"></div>
+											<input type='text' data-type='key' data-setting='Controls.OpenPlayerStats' />
+										</div>
+
+
+										<div class='setting'>
+											<div class='name' data-translate="MENU.SETTINGS.CONTROLS.OPENQUESTLOG"></div>
+											<input type='text' data-type='key' data-setting='Controls.OpenQuestLog' />
+										</div>
+
+
+
+										
+
+									</div>
+								</div>
+
+
+								<div id='settings_nav_bottom'>
+									<div id='settings_apply' class='button text-stroke-2' data-translate="MENU.SETTINGS.APPLY"></div>
+									<div id='settings_reset' class='button text-stroke-2' data-translate="MENU.SETTINGS.RESET"></div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id='credits' class='ui'>
+					<div class="container">
+						<div class="name" data-translate="CREDITS.GAME_DESIGNER"></div>
+						<div>Grzegorz 'MysticWave' Kędroń</div>
+
+						<div class="name" data-translate="CREDITS.GRAPHIC"></div>
+						<div>Grzegorz 'MysticWave' Kędroń</div>
+						<div>Pipoya (Some vfx and Cores)</div>
+
+						<div class="name" data-translate="CREDITS.MUSIC"></div>
+						<div><a href='http://creativecommons.org/licenses/by/3.0'>Kevin MacLeod - Club Driver (Boss Battle)</a></div>
+						<div><a href='http://creativecommons.org/licenses/by/3.0'>Kevin MacLeod - Wallpaper (Village)</a></div>
+						<div><a href='http://creativecommons.org/licenses/by/3.0'>Kevin MacLeod - Lightless Dawn (Secret Room)</a></div>
+						<div><a href='http://creativecommons.org/licenses/by/3.0'>Kevin MacLeod - Oppressive Gloom ()</a></div>
+						<div><a href='https://www.dl-sounds.com/royalty-free/patakas-world/'>Patakas World (Menu Theme)</a></div>
+						<div><a href='http://dig.ccmixter.org/files/Wired_Ant/34967'>Wired Ant - Snow bubble blanket for Violet Town (Ingame Theme)</a></div>
+
+						
+						<div class="name" data-translate="CREDITS.LANGS"></div>
+						<div>Konrad 'Anori00' Krupa</div>
+
+						<div class="name" data-translate="CREDITS.BALANCE"></div>
+						<div>Grzegorz 'MysticWave' Kędroń</div>
+
+						<div class="name" data-translate="CREDITS.SPECIAL_THANKS"></div>
+						<div>Konrad 'Anori00' Krupa</div>
+						<div>Marcin 'Lionel' Dusza</div>
+						<div>Kacper 'Rejdig' Bonar</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div id='item_infos'>
+				<div id='item_in_hand' class='inventory_slot text-stroke'>
+					<div class='image_container'><img /></div>
+				</div>
+			</div>
+	
+			<div class='shader' id='shader_background_transition'></div>
+			<div class='shader' id='shader_flare'></div>
+			<div class='shader' id='shader_poisoning'></div>
+		</div>
+
+		<script type="text/javascript" src="./assets/GAME.js"></script>
+		<script type="text/javascript" src="scripts/Debug.js"></script>
+		<script type="text/javascript" src="scripts/CheatSheet.js"></script>
+	
+		
+	</body>
+	
+</html>

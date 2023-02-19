@@ -1,0 +1,40 @@
+Interfejs opcji (sterowanie, muzyka, jezyk)
+Wersje jezykowe
+Content
+Balans rozgrywki
+Entity snake
+Bubble formations
+zdarzenia w secretChamber zalezne od szczescia gracza
+TextToParticles (zamienia litery na obrazy i umozliwia ich przesuwanie)
+
+Grafika mapy swiata
+Praca kamery przy skrajnych pokojach
+
+
+
+
+
+
+
+Content:
+Pool - pilki plazowe (po trafieniu stale zmniejsza sie im zycie, w zamian za predosc ruchu)
+
+Deep Ocean - Miny, potworki zmniejszajace wizje
+
+Coral Reaf - koralowce (trucizny/pioruny)
+
+Atlantis
+
+Digital Sea
+
+
+
+
+
+
+
+Rozgwiazda Śmierci
+
+-Darth Waver
+-Imperator BubbleTin
+-General Planktus

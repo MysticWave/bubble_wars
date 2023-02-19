@@ -1,0 +1,131 @@
+#quests
+{
+    --padding: calc(15px*var(--ui-scale));
+    --window-width: calc(800px*var(--ui-scale));
+    --window-height: calc(600px*var(--ui-scale));
+
+    --icon-size: calc(100px*var(--ui-scale));
+    --scroll-width: calc(10px*var(--ui-scale));
+
+    width: calc(var(--window-width) + var(--scroll-width) + 2 * var(--padding));
+    height: calc(var(--window-height) + 2 * var(--padding));
+
+    top: calc(50% - var(--window-height) / 2);
+    left: calc(50% - var(--window-width) / 2);
+    pointer-events: all;
+}
+
+
+#quests > .title
+{
+    width: 100%;
+    height: 20px;
+
+    margin: 0px;
+    transform: unset;
+    position: absolute;
+    z-index: 999;
+}
+
+#quests > .content
+{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: var(--window-height);
+    margin-top: var(--padding);
+    padding-left: var(--padding);
+    padding-right: calc(var(--padding) + var(--scroll-width));
+
+    overflow-y: scroll;
+}
+#quests > .content::-webkit-scrollbar
+{
+    width: var(--scroll-width);
+}
+#quests > .content::-webkit-scrollbar-track
+{
+    background-color: transparent;
+}
+#quests > .content::-webkit-scrollbar-thumb
+{
+    background-color: white;
+    border-radius: var(--scroll-width);
+}
+
+#quests > .content .item
+{
+    width: 100%;
+    height: 29%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding-top: calc(15px * var(--ui-scale));
+
+    background-color: #709bfde6;
+    border-radius: calc(15px*var(--ui-scale));
+    position: relative;
+}
+#quests > .content .item[data-completed='true']::after
+{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: rgba(0, 0, 0, .3);
+    background-image: url('../assets/textures/gui/check.png');
+    background-size: auto 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#quests > .content .item .icon
+{
+    --p: calc(10px * var(--ui-scale));
+    width: calc(var(--icon-size) - 2 * var(--p));
+    height: calc(var(--icon-size) - 2 * var(--p));
+    float: left;
+    margin: var(--p);
+}
+#quests > .content .item .icon img
+{
+    height: 100%;
+}
+#quests > .content .item .quest_title
+{
+    float: left;
+    box-sizing: border-box;
+    font-size: 150%;
+    height: calc(40px*var(--ui-scale));
+    line-height: calc(40px*var(--ui-scale));
+    width: calc(100% - var(--icon-size));
+    padding-left: 2%;
+}
+
+#quests > .content .item .quest_description
+{
+    float: left;
+    box-sizing: border-box;
+    font-size: 80%;
+    height: calc(80px*var(--ui-scale));
+    line-height: calc(20px*var(--ui-scale));
+    width: calc(100% - var(--icon-size));
+    padding-left: 2%;
+    padding-right: 1%;
+}
+
+
+#quests > .content .item .progress_bar
+{
+    --height: calc(20px*var(--ui-scale));
+    --progress-color: var(--base-color-stroke);
+
+    width: 80%;
+    margin-left: 10%;
+    border: calc(3px * var(--ui-scale)) solid white;
+    border-radius: 100px;
+
+    position: relative;
+}
+    

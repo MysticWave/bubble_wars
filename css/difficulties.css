@@ -1,0 +1,86 @@
+#difficulty
+{
+    --padding: 25px;
+    --window-width: 790px;
+    --window-height: 440px;
+
+    width: calc((var(--window-width) + 2 * var(--padding))*var(--ui-scale));
+    height: calc((var(--window-height) + 2 * var(--padding))*var(--ui-scale));
+
+    top: calc(50% - var(--window-height) / 2*var(--ui-scale));
+    left: calc(50% - var(--window-width) / 2*var(--ui-scale));
+    pointer-events: all;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    float: left;
+
+    animation-delay: .25s;
+    transform: scale(0);
+    animation-fill-mode: forwards;
+}
+
+#difficulty > .title
+{
+    width: 100%;
+    height: var(--padding);
+
+    margin: 0px;
+    transform: unset;
+    position: absolute;
+    z-index: 999;
+    float: left;
+}
+#difficulty .container
+{
+    width: 100%;
+    height: calc(440px*var(--ui-scale));
+    top: calc(var(--padding)*var(--ui-scale));
+    float: left;
+    position: relative;
+}
+
+#difficulty .container .difficulty
+{
+    width: calc(250px * var(--ui-scale));
+    height: calc(420px*var(--ui-scale));
+
+    float: left;
+    margin: calc(15px*var(--ui-scale));
+    margin-top: calc(10px*var(--ui-scale));
+    margin-bottom: 0px;
+    border-radius: calc(15px*var(--ui-scale));
+
+    background-color: #709bfde6;
+    overflow: hidden;
+    position: relative;
+    /* transition-duration: .1s; */
+
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+#difficulty .container .difficulty:hover
+{
+    transform: scale(1.05);
+}
+#difficulty .container .difficulty .icon
+{
+    width: calc(100px * var(--ui-scale));
+    height: calc(150px * var(--ui-scale));
+    margin: calc(75px * var(--ui-scale));
+    margin-top: calc(10px * var(--ui-scale));
+    margin-bottom: 0px;
+}
+
+#difficulty .container .difficulty .name
+{
+    width: 100%;
+    font-size: 130%;
+    text-align: center;
+}
+
+#difficulty .container .difficulty .info
+{
+    width: 94%;
+    margin: 3%;
+    font-size: 75%;
+    line-height: calc(20px * var(--ui-scale));
+}

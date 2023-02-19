@@ -1,0 +1,14 @@
+.inventory_slot[data-animated='true'] .image_container
+{
+    --frames-x: 5;
+    --frames-y: 6;
+    --speed: 1s;
+
+    transform: scale(var(--item-scale, 1));
+
+    background-size: calc(var(--frames-x) * 100%) calc(var(--frames-y) * 100%);
+
+    animation: spriteSheetX var(--speed) steps(var(--frames-x)) infinite,
+                spriteSheetY calc(var(--speed) * var(--frames-y)) steps(var(--frames-y)) infinite;
+}
+

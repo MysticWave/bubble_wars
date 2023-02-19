@@ -1,0 +1,325 @@
+.noselect
+{
+	user-select: none;
+}
+
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	background-color: #202020;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	height: 12px;
+}
+
+::-webkit-scrollbar-corner
+{
+	background-color: #434343;
+}
+
+::-webkit-scrollbar-track
+{
+	background-color: #434343;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #202020;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+    background:
+        linear-gradient(120deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(240deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(0deg, #696969 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #202020;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+    background:
+        linear-gradient(300deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(60deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(180deg, #696969 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #202020;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+    background:
+        linear-gradient(210deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(330deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(90deg, #696969 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #202020;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+    background:
+        linear-gradient(30deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(150deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(270deg, #696969 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #202020;
+}
+
+#content
+{
+	position: fixed;
+		top: 0px;
+		left: 0px;
+	width: 100%;
+	height: 100vh;
+	color: white;
+	font-size: 14px;
+}
+
+#canvas_container
+{
+	display: block;
+	float: right;
+	overflow: auto;
+	border-bottom: 1px solid black;
+
+}
+
+#canvas
+{
+	background-color: lightgray;
+	display: block;
+	margin: 0 auto;
+}
+
+select
+{
+	width: 100px;
+	color: lightgray;
+	background-color: #333333;
+	outline: none;
+	border: 1px solid black;
+	float: left;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button
+{
+	opacity: 1;
+}
+
+input[type="number"]:disabled
+{
+	color: gray;
+}
+
+input[type="text"]
+{
+	width: 170px;
+	border: 1px solid black;
+	background-color: #333333;
+	color: white;
+	outline: none;
+	font-size: 13px;
+}
+
+input[type="number"]
+{
+	width: 60px;
+	border: 1px solid black;
+	background-color: #333333;
+	color: white;
+	outline: none;
+	font-size: 13px;
+	float: left;
+	text-align: left;
+}
+
+button
+{
+	height: 20px;
+	color: lightgray;
+	background-color: #333333;
+	outline: none;
+	border: none;
+}
+
+button:disabled
+{
+	color: gray;
+}
+
+button:enabled:hover
+{
+	color: white;
+}
+
+.checkbox
+{
+	width: 100%;
+	height: 15px;
+	margin-top: 5px;
+	float: right;
+	background-color: #333333;
+}
+
+input[type="checkbox"]:disabled+span
+{
+	color: gray;
+}
+
+input[type="checkbox"]
+{
+	width: 20px;
+	height: 13px;
+	margin-top: 1px;
+	border: 1px solid black;
+	background-color: lightgray;
+	color: white;
+	outline: none;
+	font-size: 13px;
+	float: left;
+	text-align: left;
+}
+
+#code
+{
+	width: calc(100% - 364px);
+	height: calc(100vh - 25px);
+	background-color: #444444;
+	display: block;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+
+
+.window
+{
+	position: fixed;
+		top: 0px;
+		left: 0px;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.window .message
+{
+	width: 450px;
+	height: 300px;
+	display: block;
+	margin: 0 auto;
+	margin-top: calc(50vh - 150px);
+	background-color: #434343;
+	color: white;
+}
+
+.window .message div.title
+{
+	width: 100%;
+	text-align: center;
+	height: 25px;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #202020;
+	border-bottom: 1px solid gray;
+}
+
+.window .message .content
+{
+	height: calc(100% - 50px);
+	width: 100%;
+}
+
+.window .message div.footer
+{
+	width: 100%;
+	text-align: center;
+	height: 25px;
+	font-size: 20px;
+	font-weight: bold;
+	float: left;
+	margin-bottom: 1px;
+}
+
+.window .message div.footer button
+{
+	width: 100px;
+	height: 23px;
+	cursor: pointer;
+}
+
+.window .message .title .close
+{
+	margin-top: -5px;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	float: right;
+	font-size: 30px;
+	font-weight: bold;
+	color: lightgray;
+}
+
+.window .message .title .close:hover
+{
+	color: white;
+	cursor: pointer;
+}
+
+#TextEditor
+{
+	width: 100%;
+	height: calc(100vh - 50px);	
+}
+
+#cursor_info
+{
+	width: 100%;
+	height: 25px;
+	position: fixed;
+		bottom: 0px;
+		left: 0px;
+	background-color: #434343;
+}
+
+.cursor_info_property
+{
+	display: inline-block;
+	float: left;
+	height: 25px;
+	margin-left: 30px;
+}
+
+.cursor_info_property span
+{
+	display: inline-block;
+	margin-top: 3px;
+	float: left;
+}
+
+.cursor_info_property input
+{
+	width: 90px;
+	margin-left: 5px;
+	margin-top: 3px;
+	float: left;
+}
+
+.cursor_info_property button
+{
+	margin-top: 3px;
+	float: left;
+	width: 19px;
+	height: 19px;
+	margin-left: 2px;
+	border-radius: 10px;
+	font-size: 17px;
+}
+
+.cursor_info_property button:enabled:hover
+{
+	cursor: pointer;
+}

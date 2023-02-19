@@ -1,0 +1,206 @@
+.icon
+{
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+[data-icon='icon_trash']
+{
+    background-image: url('../assets/textures/gui/icon_trash.png');
+}
+
+
+
+[data-icon='settings-audio']
+{
+    background-image: url('../assets/textures/gui/audio_icon.png');
+}
+
+
+[data-icon='settings-general']
+{
+    background-image: url('../assets/textures/gui/icon_settings_general.png');
+    
+}
+[data-locked='true'] [data-icon='settings-general']
+{
+    background-image: url('../assets/textures/gui/icon_settings_general_active.png');
+}
+
+[data-icon='settings-controls']
+{
+    background-image: url('../assets/textures/gui/icon_settings_controls.png');
+    
+}
+[data-locked='true'] [data-icon='settings-controls']
+{
+    background-image: url('../assets/textures/gui/icon_settings_controls_active.png');
+}
+
+
+[data-icon='heart-empty']
+{
+    background-image: url('../assets/textures/gui/heart_empty1.png');
+}
+[data-icon='heart']
+{
+    background-image: url('../assets/textures/gui/heart_full.png');
+}
+
+
+
+[data-poisoned='true'] [data-icon='heart-empty']
+{
+    background-image: url('../assets/textures/gui/heart_empty_poisoned.png');
+}
+[data-poisoned='true'] [data-icon='heart']
+{
+    background-image: url('../assets/textures/gui/heart_full_poisoned.png');
+}
+
+
+[data-icon='difficulty_easy']
+{
+    background-image: url('../assets/textures/gui/icon_difficulty_easy.png');
+}
+[data-icon='difficulty_normal']
+{
+    background-image: url('../assets/textures/gui/icon_difficulty_normal.png');
+}
+[data-icon='difficulty_hard']
+{
+    background-image: url('../assets/textures/gui/icon_difficulty_hard.png');
+}
+
+
+
+[data-icon='icon_boss_rage_meter']
+{
+    background-image: url('../assets/textures/gui/boss_rage_meter.png');
+}
+[data-icon='icon_boss_rage_meter_2']
+{
+    background-image: url('../assets/textures/gui/boss_rage_meter_2.png');
+}
+
+
+
+
+[data-icon='world_map']
+{
+    background-image: url('../assets/textures/gui/icon_world_map.png');
+}
+[data-icon='settings']
+{
+    background-image: url('../assets/textures/gui/icon_settings.png');
+}
+[data-icon='recall']
+{
+    background-image: url('../assets/textures/gui/icon_recall.png');
+}
+[data-icon='close']
+{
+    background-image: url('../assets/textures/gui/icon_close.png');
+}
+[data-icon='pause']
+{
+    background-image: url('../assets/textures/gui/icon_pause.png');
+}
+
+
+[data-icon='cavern_entrance']
+{
+    background-image: url('../assets/textures/gui/icon_cavern.png');
+}
+[data-icon='brook']
+{
+    background-image: url('../assets/textures/gui/icon_brook.png');
+}
+[data-icon='beehive']
+{
+    background-image: url('../assets/textures/gui/icon_beehive.png');
+}
+
+
+
+[data-icon='customize']
+{
+    background-image: url('../assets/textures/gui/icon_customize.png');
+}
+
+[data-icon='crafting']
+{
+    background-image: url('../assets/textures/gui/icon_crafting.png');
+}
+
+[data-icon='store']
+{
+    background-image: url('../assets/textures/gui/icon_store.png');
+}
+
+[data-icon='knowledge']
+{
+    background-image: url('../assets/textures/gui/icon_knowledge.png');
+}
+[data-icon='quest']
+{
+    background-image: url('../assets/textures/gui/icon_quest.png');
+}
+[data-icon='boss_arena']
+{
+    background-image: url('../assets/textures/gui/icon_boss.png');
+}
+
+
+
+
+
+
+[data-icon='dash']
+{
+    background-image: url('../assets/textures/gui/icon_dash.png');
+}
+[data-icon='flash']
+{
+    background-image: url('../assets/textures/gui/icon_flash.png');
+}
+[data-icon='item_water_twister']
+{
+    background-image: url('../assets/textures/gui/icon_water_twister.png');
+}
+
+
+[data-icon='effect_regeneration']
+{
+    background-image: url('../assets/textures/gui/icon_effect_regeneration.png');
+}
+[data-icon='effect_inc_def']
+{
+    background-image: url('../assets/textures/gui/icon_effect_inc_def.png');
+}
+[data-icon='effect_inc_atk']
+{
+    background-image: url('../assets/textures/gui/icon_effect_inc_atk.png');
+}
+[data-icon='effect_dec_def']
+{
+    background-image: url('../assets/textures/gui/icon_effect_dec_def.png');
+}
+[data-icon='effect_dec_atk']
+{
+    background-image: url('../assets/textures/gui/icon_effect_dec_atk.png');
+}
+
+[data-icon='effect_poisoning']
+{
+    background-image: url('../assets/textures/gui/icon_effect_poisoning.png');
+}
+[data-icon='effect_slow']
+{
+    background-image: url('../assets/textures/gui/icon_effect_slow.png');
+}
+[data-icon='effect_stun']
+{
+    background-image: url('../assets/textures/gui/icon_effect_stun.png');
+}

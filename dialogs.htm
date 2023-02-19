@@ -1,0 +1,976 @@
+<html>
+
+	<head>
+	
+		<link rel="icon" href="assets/icons/icon.ico">
+	
+		<title>Bubble Wars Dialogs</title>
+		
+		<style>
+		
+			*
+			{
+				margin: 0;
+				padding: 0;
+			}
+			
+			::-webkit-scrollbar
+			{
+				width: 8px;
+				height: 12px;
+			}
+
+			::-webkit-scrollbar-track
+			{
+				background-color: #434343;
+			}
+
+			::-webkit-scrollbar-thumb
+			{
+				background-color: #202020;
+			}
+			
+			#navigator
+			{
+				width: 100%;
+				float: left;
+				height: 25px;
+				background-color: #434343;
+				border-bottom: 1px solid black;
+			}
+			
+			#content
+			{
+				width: calc(100% - 400px);
+				height: calc(100vh - 26px);
+				float: left;
+				display: inline-block;
+				background-color: gray;
+			}
+			
+			#tree
+			{
+				width: 400px;
+				height: calc(100vh - 26px);
+				background-color: #434343;
+				display: inline-block;
+				float: right;
+			}
+		
+			
+			#tree > div
+			{
+				float: left;
+				width: 100%;
+				height: 20px;
+				text-align: center;
+				background-color: #202020;
+				color: white;
+			}
+			
+			#dialogs_tree_content
+			{
+				float: left;
+				width: calc(100% - 10px);
+				height: calc(100% - 55px - 20px);
+				margin-top: 10px;
+				margin-left: 10px;
+				overflow-x: hidden;
+				overflow-y: auto;
+				color: white;
+			}
+			
+			ol
+			{
+				list-style: none;
+			}
+			
+			#dialogs_tree_content li
+			{
+				float: left;
+				width: 100%;
+			}
+			
+			#dialogs_tree_content li div
+			{
+				display: inline-block;
+				float: left;
+				text-align: center;
+				width: 20px;
+				height: 20px;
+			}
+			
+			#dialogs_tree_content li div:hover
+			{
+				cursor: pointer;
+				color: lightblue;
+			}
+			
+			#dialogs_tree_content li input, #dialogs_tree_content li span
+			{
+				float: left;
+			}
+			
+			#tree_navigator
+			{
+				height: 35px !important;
+				margin-top: 4px;
+				border-top: 2px solid gray;
+				background: none !important;
+			}
+			
+			#tree_navigator button
+			{
+				margin-top: 5px;
+				width: 25px;
+				height: 25px;
+				float: left;
+				margin-left: 5px;
+			}
+			
+			
+			[contenteditable]
+			{
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+			
+			.dir_name
+			{
+				height: 20px;
+			}
+			
+			.dir_image
+			{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background-image: url('./css/directory.png');
+				background-size: 100%;
+			}
+			
+			.changeNameButton
+			{
+				opacity: 0;
+				width: 15px;
+				height: 15px;
+				background: none;
+				border: none;
+				outline: none;
+				margin-left: 2px;
+				margin-top: 3px;
+				transition-duration: 0.3s;
+				background-image: url('./css/edit.png');
+				background-size: 100%;
+				cursor: pointer;
+			}
+			
+			span:hover .changeNameButton
+			{
+				opacity: 1;
+			}
+			
+			
+			
+			.dialogLine
+			{
+				width: 500px;
+				float: left;
+				border: 1px solid black;
+				position: relative;
+					top: 50px;
+					left: 50%;
+				transform: translate(-50%, 0);
+			}
+			
+			.dialogLine .navigator, .window .navigator
+			{
+				height: 30px;
+				width: 100%;
+				float: left;
+				background-color: #202020;
+				color: lightgray;
+			}
+			
+			.dialogLine .navigator .close, .window .navigator .close
+			{
+				float: right;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				font-size: 30px;
+				line-height: 30px;
+			}
+			
+			.dialogLine .navigator .title
+			{
+				display: inline-block;
+				padding: 5px;
+			}
+			
+			.dialogLine .navigator .title span
+			{
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			
+			.dialogLine .navigator .title span:hover
+			{
+				color: white;
+			}
+			
+			
+			
+			.dialogLine .text
+			{
+				width: calc(100% - 22px);
+				height: 98px;
+				float: left;
+				padding: 10px;
+				background-color: #333333;
+				border: 1px solid #333333;
+				color: lightgray;
+				transition-duration: 0.5s;
+			}
+			.dialogLine .text:hover
+			{
+				cursor: pointer;
+				background-color: #2b3b4a;
+				border-color: #0091da;
+			}
+			
+			.background
+			{
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: fixed;
+					top: 0px;
+					left: 0px;
+			}
+			
+			.window
+			{
+				width: 1000px;
+				height: 600px;
+				position: relative;
+					top: 50%;
+					left: 50%;
+				transform: translate(-50%, -50%);
+				border: 1px solid black;
+				background-color: #434343;
+			}
+			
+			.window .content
+			{
+				width: 100%;
+				height: calc(100% - 60px);
+				float: left;
+			}
+			
+			.window .content div
+			{
+				float: left;
+				width: 50%;
+				height: 100%;
+			}
+			
+			#textList
+			{
+				width: 80%;
+				float: left;
+				height: calc(100% - 50px);
+				margin-left: 10%;
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
+			
+			#textList .element
+			{
+				width: calc(100% - 8px);
+				padding-left: 5px;
+				height: 28px;
+				float: left;
+				display: block;
+				line-height: 30px;
+				border: 1px solid #333333;
+				background-color: #333333;
+				color: lightgray;
+				transition-duration: 0.5s;
+			}
+			#textList .element.new
+			{
+				text-align: center;
+			}
+			#textList .element:hover
+			{
+				cursor: pointer;
+				background-color: #2b3b4a;
+				border-color: #0091da;
+			}
+			#textList input
+			{
+				display: none;
+			}
+			#textList input:checked+.element
+			{
+				color: #333333;
+				background-color: #0091da;
+				border-color: #0091da;
+			}
+			
+			#textListAreaContainer
+			{
+				width: 100%;
+				height: 80%;
+				margin-top: 10%;
+			}
+			#textListAreaContainer div
+			{
+				width: 100%;
+				height: 30px;
+				float: left;
+			}
+			#textListAreaContainer textarea
+			{
+				width: 90%;
+				height: calc(100% - 30px);
+				float: left;
+			}
+			textarea
+			{
+				resize: none;
+				outline: none;
+				color: lightgray;
+				background-color: #333333;
+				border: 1px solid black;
+				padding: 5px;
+			}
+			
+			input, button
+			{
+				height: 20px;
+				outline: none;
+				background-color: #333333;
+				border: 1px solid black;
+				color: lightgray;
+			}
+			input:disabled, button.disabled
+			{
+				color: gray;
+			}
+			
+			#textListAreaContainer input
+			{
+				width: 300px;
+				padding-left: 5px;
+				float: left;
+			}
+			
+			#textListAreaContainer button
+			{
+				height: 20px;
+				width: 100px;
+				float: right;
+				margin-right: 10%;
+			}
+			
+			#textListSearch
+			{
+				margin-left: 10%;
+				margin-top: 15px;
+				margin-bottom: 15px;
+				height: 20px;
+			}
+			
+			.window .footer
+			{
+				width: 100%;
+				height: 30px;
+				float: left;
+			}
+		
+		</style>
+	
+	</head>
+	
+	<body>
+			
+		<div id='navigator'>
+		
+		
+		</div>
+		
+		
+		<div id='tree'>
+		
+			<div>Dialogs</div>
+			
+			<ol id='dialogs_tree_content'>
+			
+			</ol>
+			
+			<div id='tree_navigator'>
+			
+				<button id='new_dir' onclick='new_Directory()'>+</button>
+				
+				<button id='del_dir'>-</button>
+			
+			</div>
+		
+		</div>
+		
+		<div id='content'>
+		
+		</div>
+		
+		
+		<div id='selectText' class='background' style='display: none'>
+		
+			<div class='window'>
+			
+				<div class='navigator'>
+				
+					<span class='title'>
+					
+						
+					
+					</span>
+				
+					<div onClick='document.getElementById("selectText").style.display="none"' class='close'>&times;</div>
+				
+				</div>
+				
+				<div class='content'>
+				
+					<div>
+						
+						<input id='textListSearch' onkeyup='generateTextList(this.value)' type='text' placeholder='Search...' />
+
+						<div id='textList'></div>
+					
+					</div>
+					
+					<div>
+					
+						<div id='textListAreaContainer'>
+						
+							<div>
+								<input type='text' id='textListAreaId' placeholder='id'/>
+								<button onClick='saveTextListElement()'>Save</button>
+							</div>
+							
+							<textarea id='textlistArea'></textarea>
+						
+						</div>
+					
+					</div>
+				
+				</div>
+				
+				<div class='footer'>
+					<button id='saveTextSelect' onClick='saveDialogLineText()'>Select</button>
+				</div>
+			
+			</div>
+		
+		</div>
+		
+
+		<script type="text/javascript" src="./assets/content/interface/GUI/Dialog.js"></script>
+		<script type="text/javascript" src="./assets/core/interface/DialogLine.js"></script>
+		<script type="text/javascript" src="./assets/core/helper/Languages.js"></script>
+		<script type="text/javascript" src="./assets/core/helper/KEY.js"></script>
+		<script type="text/javascript" src="./assets/languages/EN.js"></script>
+		<script>
+		
+		var dialogs = 
+		{
+			Merchant: 
+			[
+				new DialogLine('MerchantTest', 'Tekst', [])
+			]
+		};
+		
+		
+		var current_lang = 'EN';
+		
+		
+		
+		function selectDialogLineText(div)
+		{
+			document.getElementById('selectText').style.display = '';
+			document.getElementById('selectText').dataset.path = div.dataset.path;
+		}
+		
+		
+		function saveDialogLineText()
+		{
+			var path = document.getElementById('selectText').dataset.path;
+			document.getElementById('selectText').style.display = 'none';
+			
+			
+			var value = document.querySelector('input[name="textElement"]:checked').value;
+			
+			editProperty(path, value);
+			
+			
+			var pathElements = path.split(' ');
+			var dir = pathElements[0];
+			var id = pathElements[1];
+			
+			GenerateDialogLine(dir, id);
+		}
+		
+		
+		function GenerateDialogLine(directory = '', id = null)
+		{
+			if(dialogs[directory])
+			{
+				var handle = document.getElementById('content');
+					handle.innerHTML = '';
+			
+				for(var i = 0; i < dialogs[directory].length; i++)
+				{
+					if(id == null || (id != null && id == i))
+					{
+						var name = dialogs[directory][i].id;
+					
+						var div = document.createElement('div');
+							div.id = 'dialogLine' + i;
+							div.className = 'dialogLine';
+							
+						var navigator = document.createElement('div');
+							navigator.className = 'navigator';
+							
+						var title = document.createElement('span');
+							title.className = 'title';
+							
+						title.innerHTML = '<span onClick="GenerateDialogLine(\''+directory+'\')">' + directory + '</span> > ' + name;
+						
+						var close = document.createElement('div');
+							close.dataset.id = div.id;
+							close.addEventListener('click', function(){document.getElementById(this.dataset.id).remove()});
+							close.className = 'close';
+							close.innerHTML = '&times;';
+							
+						var text = document.createElement('div');
+							text.className = 'text';
+							text.dataset.path = directory + " " + i + " Text";
+							text.addEventListener('click', function(){selectDialogLineText(this)});
+							
+						var textinner = (LANGS[current_lang][dialogs[directory][i].Text]) ? LANGS[current_lang][dialogs[directory][i].Text] : dialogs[directory][i].Text;
+							text.innerHTML = textinner;
+							
+						navigator.appendChild(title);
+						navigator.appendChild(close);
+						div.appendChild(navigator);
+						div.appendChild(text);
+						
+						handle.appendChild(div);
+					}
+				}
+		
+			}
+		}
+		
+		
+		
+		
+		
+		function saveTextListElement()
+		{
+			var id = document.getElementById('textListAreaId').value;
+				id = id.trim().toUpperCase();
+				
+			if(id != '')
+			{
+				var value = document.getElementById('textlistArea').value;
+				
+				LANGS[current_lang][id] = value;
+				
+				
+				var query = document.getElementById('textListSearch').value;
+				generateTextList(query);
+				document.getElementById('text' + id + 'label').click();
+			}
+		}
+		
+		
+		
+		function generateTextList(query = "")
+		{
+			query = query.toUpperCase();
+			var lng = LANGS[current_lang];
+			
+			var handle = document.getElementById('textList');
+				handle.innerHTML = '';
+				
+			document.getElementById('saveTextSelect').disabled = true;
+			
+			
+			var el = document.createElement('label');
+				el.className = 'element new';
+				el.innerHTML = '-- NEW --';
+				el.htmlFor = 'textListAreaId';
+				el.dataset.id = id;
+				el.addEventListener('click', function()
+				{
+					document.getElementById('textListAreaId').disabled = false;
+					document.getElementById('textListAreaId').value = '';
+					document.getElementById('saveTextSelect').disabled = false;
+					document.getElementById('textlistArea').value = '';
+				});
+				
+			handle.appendChild(el);
+			
+			
+			var obj = Object.keys(lng).sort();
+			
+			for(var i = 0; i < obj.length; i++)
+			{
+				var id = obj[i];
+				if(id.toUpperCase().includes(query))
+				{
+					var elementId = 'text'+id;
+				
+					var el = document.createElement('label');
+						el.className = 'element';
+						el.innerHTML = id.toUpperCase();
+						el.htmlFor = elementId;
+						el.dataset.id = id;
+						el.id = elementId + 'label';
+						el.addEventListener('click', function()
+						{
+							document.getElementById('saveTextSelect').disabled = false;
+							document.getElementById('textListAreaId').disabled = true;
+							document.getElementById('textListAreaId').value = this.dataset.id;
+							document.getElementById('textlistArea').value = LANGS['EN'][this.dataset.id];
+						});
+						
+					var input = document.createElement('input');
+						input.type = 'radio';
+						input.name = 'textElement';
+						input.id = elementId;
+						input.value = id;
+						
+					handle.appendChild(input);
+					handle.appendChild(el);
+				}
+			}
+		}
+		
+		generateTextList();
+		
+		
+		
+		var Opened = {};
+		
+		
+		const arrow_close = '&#x25B6;';
+		const arrow_open = '&#x25E2;';
+		
+		function Open(element)
+		{
+			var id = element.dataset.id;
+			var el = document.getElementById(id);
+			
+			el.style.display = (el.style.display == 'none') ? 'block' : 'none';
+			element.innerHTML = (el.style.display == 'none') ? arrow_close : arrow_open;
+			Opened[id] = (el.style.display == 'none') ? false : true;
+		}
+		
+		
+		
+		function renameDir(input)
+		{
+			if(input.id == input.innerHTML) 
+			{
+				input.contentEditable = false;
+				return;
+			}
+			
+			var temp = dialogs[input.id];
+			dialogs[input.innerHTML] = temp;;
+			delete dialogs[input.id];
+			
+			GenerateTree();
+		}
+		
+		function new_Directory()
+		{
+		
+			var i = 0;
+			
+			while(true)
+			{
+				if(!dialogs['Directory '+i]) break;
+				i++;
+			}
+			
+			dialogs['Directory '+i] = [];
+			
+			GenerateTree();
+			
+			document.getElementById('Directory '+i).contentEditable = true;
+			document.getElementById('Directory '+i).focus();
+		}
+		
+		
+		function editProperty(path, value)
+		{
+			path = path.split(' ');
+			
+			var element = dialogs;
+			for(var i = 0; i < path.length - 1; i++)
+			{
+				element = element[path[i]];
+			}
+			
+			element[path[path.length - 1]] = value;
+			console.log(element);
+			GenerateTree();
+		}
+		
+		
+		function contentEditableEnter(e)
+		{
+			if(e.key == 'Enter')
+			{
+				e.preventDefault();
+				this.blur();
+			}
+		}
+		
+		
+		function changeDirName()
+		{
+			var el = document.getElementById(this.dataset.id);
+				el.contentEditable = true;
+				el.focus();
+		}
+		
+		
+		function GenerateTree()
+		{
+			var handle = document.getElementById('dialogs_tree_content');
+				handle.innerHTML = '';
+			var element = 0;
+			
+			var marginStep = 20;
+			var margin = 0;
+			
+			var edit = 'edit';
+			
+			for(var id in dialogs)
+			{
+				var li_main = document.createElement('li');
+				
+				var li_dir = document.createElement('div');
+					li_dir.className = 'dir_image';
+					
+				var li_main_container = document.createElement('span');
+				
+				var li_main_span = document.createElement('span');
+					li_main_span.innerHTML = id;
+					li_main_span.id = id;
+					li_main_span.contentEditable = false;
+					li_main_span.spellcheck = false;
+					li_main_span.className = 'dir_name';
+					//li_main_span.type = 'text';
+					li_main_span.addEventListener('focusout', function(){renameDir(this)});
+					li_main_span.addEventListener('keydown', contentEditableEnter);
+					
+				var li_main_button = document.createElement('button');
+					li_main_button.dataset.id = li_main_span.id;
+					li_main_button.className = 'changeNameButton';
+					li_main_button.addEventListener('click', changeDirName);
+					
+				
+					
+				var li_main_div = document.createElement('div');
+					li_main_div.addEventListener('click', function(){Open(this)});
+					li_main_div.dataset.id = 'element_' + element;
+					
+				var ol_main = document.createElement('ol');
+					ol_main.id = li_main_div.dataset.id;
+					ol_main.style.display = (Opened[ol_main.id]) ? '' : 'none';
+					li_main_div.innerHTML = (Opened[ol_main.id]) ? arrow_open : arrow_close;
+					
+				
+					
+				li_main.appendChild(li_main_div);
+				li_main.appendChild(li_main_container);
+				
+				li_main_container.appendChild(li_dir);
+				li_main_container.appendChild(li_main_span);
+				li_main_container.appendChild(li_main_button);
+				
+				li_main.appendChild(ol_main);
+					
+				for(var i = 0; i < dialogs[id].length; i++)
+				{
+					margin = marginStep;
+					
+					var li = document.createElement('li');
+						li.style.marginLeft = margin + "px";
+					var li_span = document.createElement('span');
+						li_span.innerHTML = dialogs[id][i].id;
+						li_span.dataset.dir = id;
+						li_span.dataset.id = i;
+						li_span.addEventListener('click', function(){GenerateDialogLine(this.dataset.dir, this.dataset.id)});
+					
+					var li_div = document.createElement('div');
+						
+						li_div.addEventListener('click', function(){Open(this)});
+						li_div.dataset.id = li_main_div.dataset.id + "_" + i;
+						
+					var ol = document.createElement('ol');
+						ol.id = li_div.dataset.id;
+						ol.style.display = (Opened[ol.id]) ? '' : 'none';
+						li_div.innerHTML = (Opened[ol.id]) ? arrow_open : arrow_close;
+						
+						
+					margin = marginStep * 2;
+					
+					
+					var textinner = (LANGS[current_lang][dialogs[id][i].Text]) ? LANGS[current_lang][dialogs[id][i].Text] : dialogs[id][i].Text;
+					
+					var text = document.createElement('li');
+						text.style.marginLeft = margin + "px";
+						text.innerHTML = "Text: " + textinner;
+						
+					margin = marginStep;
+						
+					var options = document.createElement('li');
+						options.style.marginLeft = margin + "px";
+						
+					var options_span = document.createElement('span');
+						options_span.innerHTML = 'Options: ';
+					var options_div = document.createElement('div');
+						
+						options_div.addEventListener('click', function(){Open(this)});
+						options_div.dataset.id = li_div.dataset.id + '_options';
+						
+					var options_ol = document.createElement('ol');
+						options_ol.id = options_div.dataset.id;
+						options_ol.style.display = (Opened[options_ol.id]) ? '' : 'none';
+						options_div.innerHTML = (Opened[options_ol.id]) ? arrow_open : arrow_close;
+						
+					for(var j = 0; j < dialogs[id][i].Options.length; j++)
+					{
+						margin = marginStep;
+						var option = document.createElement('li');
+							option.style.marginLeft = margin + "px";
+							option.innerHTML = dialogs[id][i].Options[j].Text;
+							
+						var option_div = document.createElement('div');
+							
+							option_div.addEventListener('click', function(){Open(this)});
+							option_div.dataset.id = options_div.dataset.id + "_" + j;
+							
+						var options_info = document.createElement('ol');
+							options_info.id = option_div.dataset.id;
+							options_info.style.display = (Opened[options_info.id]) ? '' : 'none';
+							option_div.innerHTML = (Opened[options_info.id]) ? arrow_open : arrow_close;
+							
+							margin = marginStep * 2;
+							
+							var option_text = document.createElement('li');
+								option_text.style.marginLeft = margin + "px";
+								var input = document.createElement('input');
+									input.dataset.path = id + " " + i + " Options " + j + " Text";
+									input.addEventListener('change', function(){editProperty(this.dataset.path, this.value)});
+									input.value = dialogs[id][i].Options[j].Text;
+								option_text.innerHTML = '<span>Text:&nbsp;&nbsp;&nbsp;</span>';
+								option_text.appendChild(input);
+								
+							var option_onclick = document.createElement('li');
+								option_onclick.style.marginLeft = margin + "px";
+									input = document.createElement('input');
+									input.dataset.path = id + " " + i + " Options " + j + " onClick";
+									input.addEventListener('change', function(){editProperty(this.dataset.path, this.value)});
+									input.value = dialogs[id][i].Options[j].onClick;
+								option_onclick.innerHTML = '<span>onClick:&nbsp;&nbsp;&nbsp;</span>';
+								option_onclick.appendChild(input);
+								
+							var option_showTrigger = document.createElement('li');
+								option_showTrigger.style.marginLeft = margin + "px";
+									input = document.createElement('input');
+									input.dataset.path = id + " " + i + " Options " + j + " showTrigger";
+									input.addEventListener('change', function(){editProperty(this.dataset.path, this.value)});
+									input.value = dialogs[id][i].Options[j].showTrigger;
+								option_showTrigger.innerHTML = '<span>showTrigger:&nbsp;&nbsp;&nbsp;</span>';
+								option_showTrigger.appendChild(input);
+								
+							options_info.appendChild(option_text);
+							options_info.appendChild(option_onclick);
+							options_info.appendChild(option_showTrigger);
+							
+							option.appendChild(option_div);
+							option.appendChild(options_info);
+							
+						options_ol.appendChild(option);
+					}
+					
+					ol.appendChild(text);
+					options.appendChild(options_div);
+					options.appendChild(options_span);
+					options.appendChild(options_ol);
+					ol.appendChild(options);
+					
+					li.appendChild(li_div);
+					li.appendChild(li_span);
+					li.appendChild(ol);
+
+					ol_main.appendChild(li);
+				}
+				
+				handle.appendChild(li_main);
+				element++;
+			}
+		}
+		
+		
+		
+		
+		function Export()
+		{
+			var text = '';
+		
+			for(var id in dialogs)
+			{
+				text += "/* ------ " + id + " ------ */\n";
+				
+				for(var i = 0; i < dialogs[id].length; i++)
+				{
+					var d = dialogs[id][i];
+					text += "new DialogLine('"+d.id+"', '"+d.Text+"', [";
+					for(var j = 0; j < d.Options.length; j++)
+					{
+						var o = d.Options[j];
+						var click = (o.onClick) ? o.onClick : 'null';
+							click = (click.trim()) ? click.trim() : 'null';
+						var trigger = (o.showTrigger) ? o.showTrigger : 'null';
+							trigger = (trigger.trim()) ? trigger.trim() : 'null';
+						if(j > 0) text += ", ";
+						text += "new DialogOption('"+o.Text+"', "+click+", "+trigger+")";
+					}
+					text += "])\n;";
+				}
+			}
+			
+			return text;
+		}
+		
+		
+		//new DialogLine('MerchantTest', 'Merchant do was przemowil lol xD', [new DialogOption('Pokaz mi swoje towary.', DialogLine.OpenShop)]);
+		
+		
+		GenerateTree();
+		
+		</script>
+	
+	</body>
+	
+</html>

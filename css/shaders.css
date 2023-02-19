@@ -1,0 +1,55 @@
+.shader
+{
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+
+    background-attachment: fixed;
+
+    z-index: 9999;
+}
+
+#shader_flare
+{
+
+    background-image: url('../css/flare.png');
+    background-size: cover;
+    background-position: center top;
+
+    animation-name: flare;
+    animation-iteration-count: infinite;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+
+    left: -1px;
+}
+
+
+#shader_background_transition
+{
+    background-color: black;
+    opacity: 0;
+}
+
+
+
+
+#shader_poisoning
+{
+    opacity: 0;
+    background: radial-gradient(circle, rgba(2,250,64,.1) 50%, rgb(2, 250, 64) 90%);
+    transition-duration: .5s;
+}
+#shader_poisoning[data-open='true']
+{
+    opacity: .5;
+}
+#shader_poisoning[data-open='false']
+{
+    display: block !important;
+    opacity: 0;
+}
